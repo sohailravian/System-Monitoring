@@ -1,0 +1,107 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.gcaa.service.metrics.config.ActivemqRestApiProperties",
+      "name": "activemq.restapi",
+      "type": "com.gcaa.service.metrics.config.ActivemqRestApiProperties"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.BrokerCollectorProperties",
+      "name": "broker",
+      "type": "com.gcaa.service.metrics.config.BrokerCollectorProperties"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.DestinationCollectorProperties",
+      "name": "destination",
+      "type": "com.gcaa.service.metrics.config.DestinationCollectorProperties"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.QueueCollectorProperties",
+      "name": "queue",
+      "type": "com.gcaa.service.metrics.config.QueueCollectorProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.gcaa.service.metrics.config.ActivemqRestApiProperties",
+      "name": "activemq.restapi.host",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.ActivemqRestApiProperties",
+      "name": "activemq.restapi.password",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.ActivemqRestApiProperties",
+      "name": "activemq.restapi.read-endpoint",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.ActivemqRestApiProperties",
+      "name": "activemq.restapi.username",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.BrokerCollectorProperties",
+      "name": "broker.endpoint",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.BrokerCollectorProperties",
+      "name": "broker.frequency-cron",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.BrokerCollectorProperties",
+      "name": "broker.measure",
+      "type": "java.util.List<java.lang.String>"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.BrokerCollectorProperties",
+      "name": "broker.name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.DestinationCollectorProperties",
+      "name": "destination.endpoint",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.DestinationCollectorProperties",
+      "name": "destination.frequency-cron",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.DestinationCollectorProperties",
+      "name": "destination.measure",
+      "type": "java.util.List<java.lang.String>"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.DestinationCollectorProperties",
+      "name": "destination.name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.QueueCollectorProperties",
+      "name": "queue.endpoint",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.QueueCollectorProperties",
+      "name": "queue.frequency-cron",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.QueueCollectorProperties",
+      "name": "queue.measure",
+      "type": "java.util.List<java.lang.String>"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.QueueCollectorProperties",
+      "name": "queue.name",
+      "type": "java.lang.String"
+    }
+  ]
+}

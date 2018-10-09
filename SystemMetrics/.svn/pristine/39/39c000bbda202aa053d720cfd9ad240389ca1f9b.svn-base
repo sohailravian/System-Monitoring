@@ -1,0 +1,109 @@
+package com.gcaa.resource.metrics.collector;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import com.gcaa.metrics.domain.model.Category;
+import com.gcaa.metrics.domain.model.HardDisk;
+import com.gcaa.metrics.domain.model.Resource;
+import com.gcaa.resource.metrics.config.MemoryCollectorProperties;
+import oshi.SystemInfo;
+import oshi.hardware.HWDiskStore;
+import oshi.software.os.OSFileStore;
+import static com.gcaa.metrics.domain.util.NumberUtils.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
+public class DiskSpaceCollector implements Collector {
+
+	private SystemInfo systemInfo;
+	
+	private static Logger LOGGER = LoggerFactory.getLogger(DiskSpaceCollector.class);
+
+	private MemoryCollectorProperties memoryProperties;
+	
+	@Autowired
+	public DiskSpaceCollector(SystemInfo systemInfo, MemoryCollectorProperties collectorProperties) {
+		this.systemInfo = systemInfo;
+		this.memoryProperties = collectorProperties;
+	}
+
+	public List<? extends Resource> collectDisks() {
+		
+		List<HardDisk> hardDisks = new ArrayList<HardDisk>();
+		LOGGER.info("Disk Memory Metrics Collector Started ");
+		OSFileStore[] disks = systemInfo.getOperatingSystem().getFileSystem().getFileStores();
+				
+		if(disks.length > 0) {
+			for (OSFileStore disk : disks) {
+					
+					float totalDiskSize = Float.valueOf(disk.getTotalSpace()) / Float.valueOf(memoryProperties.getUnit());
+					float usedDiskSize = Float.valueOf(totalDiskSize -  (disk.getUsableSpace()) / Float.valueOf(memoryProperties.getUnit()));
+					HardDisk hardDisk = new HardDisk(floatFormatter(usedDiskSize), floatFormatter(totalDiskSize),disk.getName());
+					
+					hardDisks.add(hardDisk);
+			}
+		}else {
+			LOGGER.info("{ No drive found ...}");
+			HardDisk hardDisk = new HardDisk(0,0,"");
+			hardDisks.add(hardDisk);
+		}
+	
+		LOGGER.info("{ Memory Metrics Collector Finished. " + hardDisks + " }");
+		return hardDisks;
+
+	}
+
+	
+	
+	public Resource collectTotalDisk() {
+		
+		HardDisk hardDisk=null;
+		float diskSize=0;
+		float diskused=0;
+		
+		LOGGER.info("Total Disk Memory Metrics Collector Started ");
+		HWDiskStore[] disks = systemInfo.getHardware().getDiskStores();
+		
+		if(disks.length > 0) {
+			for (HWDiskStore disk : disks) {
+				diskSize = diskSize + Float.valueOf(disk.getSize()) / Float.valueOf(memoryProperties.getUnit());
+				diskused = diskused + Float.valueOf(disk.getReadBytes()) / Float.valueOf(memoryProperties.getUnit());
+			}
+		}else {
+			LOGGER.info("{ No drive found ...}");
+			hardDisk = new HardDisk(0,0,"");
+		}
+	
+		if(diskSize > 0)
+			hardDisk=new HardDisk(floatFormatter(diskused), floatFormatter(diskSize), Category.DISK.name());
+		
+		LOGGER.info("{ Memory Metrics Collector Finished. " + hardDisk + " }");
+		return hardDisk;
+
+	}
+
+	public static void main(String[] args) {
+		float a = 9715712f /  1073741824f ;
+		System.out.println((a/ 7)  * 100);
+		System.out.println(9715712 %  1073741824);
+	
+		
+	}
+	@Override
+	public Resource collect() {
+		LOGGER.warn("Not implemented");
+		return null;
+	}
+	@Override
+	public Resource collectByProcessId(int processId) {
+		LOGGER.warn("Not implemented");
+		return null;
+	}
+	
+	
+}
+
+	

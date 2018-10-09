@@ -1,0 +1,55 @@
+package com.gcaa.resource.metrics.config;
+
+import java.util.List;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@ConfigurationProperties(prefix = "memory")
+public class MemoryCollectorProperties {
+	
+	private long unit; 
+	private String frequencyCron;
+	private List<Process> processIds;
+	
+	public static class Process {
+		
+		private int id;
+		private String name;
+		public String getName() {
+			return name;
+		}
+		
+		public void setName(String name) {
+			this.name = name;
+		}
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
+		}
+	}
+	
+	
+	public String getFrequencyCron() {
+		return frequencyCron;
+	}
+	public void setFrequencyCron(String frequencyCron) {
+		this.frequencyCron = frequencyCron;
+	}
+	public long getUnit() {
+		return unit;
+	}
+	public void setUnit(long unit) {
+		this.unit = unit;
+	}
+	public List<Process> getProcessIds() {
+		return processIds;
+	}
+	public void setProcessIds(List<Process> processIds) {
+		this.processIds = processIds;
+	}	
+
+}

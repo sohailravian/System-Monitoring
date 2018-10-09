@@ -1,0 +1,49 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gcaa.resource.metrics.mapper.UtilizationMapper">
+	<insert id="save" parameterType="com.gcaa.metrics.domain.model.Utilization">
+		insert into UTILIZATION (
+		HOST_ID,
+		TYPE_ID,
+		CATEGORY_ID,
+		INFO,
+		USED,
+		TOTAL,
+		DATE_TIME)
+		values (
+		#{host.id},
+		#{type.id},
+		#{category.id},
+		#{info},
+		#{memory.used},
+		#{memory.total},
+		#{dateTime}
+		)
+	</insert>
+
+	<insert id="saveBatch" parameterType="com.gcaa.metrics.domain.model.Utilization">
+		<foreach collection="utilizations" item="utilization" separator=";">
+			insert into UTILIZATION (
+			HOST_ID,
+			TYPE_ID,
+			CATEGORY_ID,
+			INFO,
+			USED,
+			TOTAL,
+			DATE_TIME)
+			values (
+			#{host.id},
+			#{type.id},
+			#{category.id},
+			#{info},
+			#{memory.used},
+			#{memory.total},
+			#{dateTime}
+			)
+			
+		</foreach>
+			
+	</insert>
+
+</mapper>	

@@ -1,0 +1,49 @@
+package com.gcaa.resource.metrics;
+
+import java.util.Date;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.AdviceMode;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import com.gcaa.metrics.domain.model.Category;
+import com.gcaa.metrics.domain.model.Host;
+import com.gcaa.metrics.domain.model.Measurement;
+import com.gcaa.metrics.domain.model.Metrics;
+import com.gcaa.metrics.domain.model.Type;
+
+@SpringBootApplication
+@EnableScheduling
+public class MetricsCollectorApplication implements CommandLineRunner{
+	
+	@Autowired
+	private ApplicationService applicationService;
+	
+	public static void main(String[] args) {
+		SpringApplication.run(MetricsCollectorApplication.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+	/*	Metrics metrics = new Metrics(new Host(1, "Machine 1"), 
+				  Type.SERVICE, 
+				  Category.RIE, 
+				  Measurement.UPSTREAM_SERVERS, 
+				  new Date(), 
+				  2);
+		applicationService.saveMetrics(metrics);*/
+	}
+	
+}

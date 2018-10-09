@@ -1,0 +1,22 @@
+package com.gcaa.resource.metrics.repository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import com.gcaa.metrics.domain.model.Metrics;
+import com.gcaa.resource.metrics.mapper.MetricsMapper;
+
+@Repository
+public class MyBatisMetricsRepository implements MetricsRepository {
+
+	@Autowired
+	private MetricsMapper metricsMapper;
+	
+	@Override
+	public boolean save(Metrics metrics) {
+		
+		return metricsMapper.save(metrics);
+		
+	}
+
+
+}

@@ -1,0 +1,59 @@
+package com.gcaa.resource.metrics.collector;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.gcaa.metrics.domain.model.Memory;
+import com.gcaa.metrics.domain.model.Resource;
+import com.gcaa.resource.metrics.config.MemoryCollectorProperties;
+import oshi.SystemInfo;
+
+
+@Component
+public class MemoryCollector implements Collector {
+
+	private SystemInfo systemInfo;
+	private static Logger LOGGER = LoggerFactory.getLogger(MemoryCollector.class);
+
+	private MemoryCollectorProperties collectorProperties;
+
+	@Autowired
+	public MemoryCollector(SystemInfo systemInfo, MemoryCollectorProperties collectorProperties) {
+		this.systemInfo = systemInfo;
+		this.collectorProperties = collectorProperties;
+	}
+
+	@Override
+	public Resource collect() {
+
+		LOGGER.info("{ Memory Metrics Collector Started. }");
+
+		long total = systemInfo.getHardware().getMemory().getTotal() / (collectorProperties.getUnit());
+		long used = total - systemInfo.getHardware().getMemory().getAvailable() / (collectorProperties.getUnit());
+		
+
+		Memory memory = new Memory(used, total);
+
+		LOGGER.info("{ Memory Metrics Collector Finished. " + memory + " }");
+		return memory;
+
+	}
+
+	@Override
+	public Resource collectByProcessId(int processId) {
+		
+		LOGGER.info("{ Memory Metrics Collector Started With Process Id. }");
+		
+		long used = systemInfo.getOperatingSystem().getProcess(processId).getResidentSetSize() / (collectorProperties.getUnit());
+		long total = systemInfo.getHardware().getMemory().getTotal() / (collectorProperties.getUnit());
+
+		Memory memory = new Memory(used, total);
+
+		LOGGER.info("{ Memory Metrics Collector Finished. " + memory + " }");
+		return memory;
+
+	}
+
+}

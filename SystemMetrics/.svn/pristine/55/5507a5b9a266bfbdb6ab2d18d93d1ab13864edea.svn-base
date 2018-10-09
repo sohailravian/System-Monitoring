@@ -1,0 +1,11 @@
+package com.gcaa.resource.metrics.collector;
+
+import com.gcaa.metrics.domain.model.Resource;
+
+public interface Collector {
+	
+	public static int HUNDRED_PERCENT=100;
+	public Resource collect();
+	public Resource collectByProcessId(int processId);
+	
+}

@@ -1,0 +1,34 @@
+package com.gcaa.metrics.domain.model;
+
+public enum Category {
+	
+	MEMORY(1,"CAT001"),
+	DISK(2,"CAT002"),
+	CPU(3,"CAT003"),
+	RIE(4,"CAT004"),
+	RFE(5,"CAT005"),
+	BROKER(6,"CAT006");
+	
+	private Category(int id,String code) {
+		this.id=id;
+		this.code=code;
+	}
+	
+	private String code;
+	private int id;
+	
+	
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+}

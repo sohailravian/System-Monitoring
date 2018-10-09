@@ -1,0 +1,8 @@
+package com.gcaa.status.metrics.collector;
+
+public interface Collector {
+	
+	public static int HUNDRED_PERCENT=100;
+	public boolean collectByProcessIdPath(String path);
+	
+}

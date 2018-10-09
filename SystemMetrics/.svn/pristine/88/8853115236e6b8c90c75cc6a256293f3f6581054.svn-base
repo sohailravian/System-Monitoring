@@ -1,0 +1,164 @@
+package com.gcaa.resource.metrics.collector;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import com.gcaa.metrics.domain.model.CPU;
+import com.gcaa.metrics.domain.model.Resource;
+import com.mysql.fabric.xmlrpc.base.Data;
+
+import oshi.SystemInfo;
+import oshi.hardware.CentralProcessor;
+import oshi.software.os.OSProcess;
+import oshi.software.os.OperatingSystem.ProcessSort;
+import oshi.util.Util;
+import static com.gcaa.metrics.domain.util.NumberUtils.*;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+@Component
+public class PerformanceCollector implements Collector {
+
+	private SystemInfo systemInfo ;
+	
+	private static Logger LOGGER = LoggerFactory.getLogger(PerformanceCollector.class);
+	
+	private static transient CentralProcessor processor;
+
+	public static transient long previousTime;
+	
+	public static transient Map<Integer,Long> childProcessPreviousTime = new HashMap<Integer,Long>();
+	
+	public static transient long previousScheduleTime;
+	
+	@Autowired
+	public PerformanceCollector(SystemInfo systemInfo) {
+		this.systemInfo = systemInfo;
+	}
+	
+	static{
+		
+	}
+
+	@Override
+	public Resource collect() {
+
+		LOGGER.info("{ Performance/CPU Metrics Collector Started. }");
+		float used = Float.valueOf(Double.toString(systemInfo.getHardware().getProcessor().getSystemCpuLoad() * HUNDRED_PERCENT)); 
+		float total = HUNDRED_PERCENT;
+		
+		CPU cpu = new CPU(floatFormatter(used), floatFormatter(total));
+		LOGGER.info("{ Performance/CPU Metrics Collector Finished. " + cpu + " }");
+		return cpu;
+
+	}
+
+	@Override
+	public Resource collectByProcessId(int processId) {
+		CPU cpu=null;
+		//processId= 51124;
+		LOGGER.info("Performance/CPU Metrics Collector Started With Process { " + processId + " }");
+
+		OSProcess process = systemInfo.getOperatingSystem().getProcess(processId);
+		
+		if(null == process) {
+			LOGGER.info("Performance/CPU metrics not found with process { "+ processId +" }");
+			cpu = new CPU(0, 0);
+		}else {
+			
+			CentralProcessor processor = systemInfo.getHardware().getProcessor();
+		    int cpuNumber = processor.getLogicalProcessorCount();
+			float total = Float.valueOf(Double.toString(systemInfo.getHardware().getProcessor().getSystemCpuLoad() * HUNDRED_PERCENT));
+			long currentTime = process.getKernelTime() + process.getUserTime();
+			long timeDifference = currentTime - previousTime;
+			
+			double schdulerTime = (double) (new Date().getTime() - previousScheduleTime);
+			
+			double processCpu = ( 100 * ( timeDifference / schdulerTime ) ) / cpuNumber;
+			
+			previousTime = currentTime;
+			previousScheduleTime = new Date().getTime();
+			
+			OSProcess[] osProcesses = systemInfo.getOperatingSystem().getChildProcesses(processId, 0, ProcessSort.CPU);
+			for (OSProcess osProcess : osProcesses) {
+					long childCurrentTime = osProcess.getKernelTime() + osProcess.getUserTime() ;
+					Long childPrevioustime = childProcessPreviousTime.get(osProcess.getProcessID());
+					long timeDifference1 = childCurrentTime - (childPrevioustime != null ? childPrevioustime : 0);
+					processCpu =  processCpu + (100 * ( (double)timeDifference1 / schdulerTime) ) / cpuNumber ;
+					
+					childProcessPreviousTime.put(osProcess.getProcessID(), childCurrentTime);
+			}
+			
+			
+			double used = floatFormatter(processCpu);
+			
+			cpu = new CPU(floatFormatter(used) ,floatFormatter(total));
+			
+			 System.out.format("K: %d, U: %d, diff: %d, CPU: %.1f%n", process.getKernelTime(), process.getUserTime(),
+		                timeDifference, processCpu);
+			
+		}
+	
+		LOGGER.info("{ Performance/CPU Metrics Collector Finished. " + cpu + " }");
+		
+		return cpu;
+
+	}
+
+	public static void main(String[] args) throws InterruptedException, IOException {
+		cpuUtilizationForProcess();
+	}
+	
+	
+	public static void cpuUtilizationForProcess() {
+		
+		while(true) {
+ 		
+		
+		SystemInfo systemInfo = new SystemInfo();
+		
+		//int processId = systemInfo.getOperatingSystem().getProcessId();
+		int processId = 81016;
+		OSProcess process = systemInfo.getOperatingSystem().getProcess(processId);
+		
+		long currentTime = process.getKernelTime() + process.getUserTime() ;
+		long timeDifference = currentTime - previousTime;
+		
+		double schdulerTime = (double)( new Date().getTime() - previousScheduleTime) ;
+		
+		double processCpu =  (100 * ( (double)timeDifference / schdulerTime )) ;
+		
+				
+		OSProcess[] osProcesses = systemInfo.getOperatingSystem().getChildProcesses(processId, 0, ProcessSort.CPU);
+		for (OSProcess osProcess : osProcesses) {
+				long currentTime1 = osProcess.getKernelTime() + osProcess.getUserTime() ;
+				Long childPrevioustime = childProcessPreviousTime.get(osProcess.getProcessID());
+				long timeDifference1 = currentTime1 - (childPrevioustime != null ? childPrevioustime : 0);
+				processCpu =  processCpu + (100 * ( (double)timeDifference1 / schdulerTime) ) / 4 ;
+				
+				childProcessPreviousTime.put(osProcess.getProcessID(), currentTime1);
+			
+			
+		}
+	
+		
+		previousTime = currentTime;
+		previousScheduleTime = new Date().getTime();
+		
+		
+		
+		 System.out.format("K: %d, U: %d, diff: %d, CPU: %.2f%n", process.getKernelTime(), process.getUserTime(),
+	                timeDifference, processCpu);
+		
+		Util.sleep(5000);
+			
+		}
+	}
+	
+}
+
+	

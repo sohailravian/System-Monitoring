@@ -1,0 +1,63 @@
+package com.gcaa.resource.metrics;
+
+import java.util.Arrays;
+import oshi.SystemInfo;
+import oshi.software.os.OSFileStore;
+import oshi.software.os.OSProcess;
+import oshi.software.os.OperatingSystem.ProcessSort;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		SystemInfo info=new SystemInfo();
+		
+		//HWDiskStore[] disks =info.getHardware().getDiskStores();
+		//Arrays.stream(disks).map(disk -> (disk.getSize() / (1024 * 1024 * 1024))).toString();
+		
+		OSFileStore[] disks=				info.getOperatingSystem().getFileSystem().getFileStores();
+		//OSProcess[] processesWrtCpu=info.getOperatingSystem().getProcesses(10, ProcessSort.CPU);
+		
+		OSProcess[] processesWrtMemory=		info.getOperatingSystem().getProcesses(10, ProcessSort.MEMORY);
+		Double cpuLoad= 					info.getHardware().getProcessor().getSystemCpuLoad();
+				
+		System.out.println("===================================== Hard Disk Metrics ===============================");
+		System.out.println();
+		Arrays.stream(disks).forEach(disk -> {  
+			System.out.println("Drive Name"+ disk.getName() +" with memory : " + disk.getTotalSpace() / (1024 * 1024 * 1024) + " GB");
+			System.out.println("Drive Name"+ disk.getName() +" with memory : " + disk.getUsableSpace() / (1024 * 1024 * 1024) + " GB");
+			}
+		);
+		
+		System.out.println(" ===================================== Memory Metrics ===============================");
+		
+		System.out.println("Total RAM : " + info.getHardware().getMemory().getTotal() / (1024 * 1024 * 1024) + " GB");
+		System.out.println("Free RAM : " + info.getHardware().getMemory().getAvailable() / (1024 * 1024 * 1024) + " GB");
+		
+		
+		
+		System.out.println("===================================== Top 10 Processes {MEMORY, CPU} ===============================");
+		System.out.println("Total running processes : " + info.getOperatingSystem().getProcessCount());
+		
+		
+	/*	System.out.println("===================================== CPU Consumption Based Top 10 Processes ===============================");
+		System.out.println();
+		Arrays.stream(processesWrtCpu).forEach(process ->   
+			System.out.println("Process  {"+  process.getName() + " with Id "+  process.getProcessID() + " and CPU consumption "+ process.get / (1024 * 1024) + " MB } with respect to CPU.")
+		);*/
+		
+		System.out.println("===================================== Memory Consumption Based Top 10 Processes ===============================");
+		System.out.println();
+		Arrays.stream(processesWrtMemory).forEach(process ->   
+			System.out.println("Process  { "+  process.getName() + " with Id "+  process.getProcessID()+ " and Memory consumption "+ process.getResidentSetSize() /(1024 * 1024) + " MB } with respect to Memory.")
+		);
+		
+		/*Arrays.stream(processesWrtCpu).forEach(process ->   
+		System.out.println("process "+  process.getName() + " with Id "+  process.getProcessID())
+		);*/
+		
+		System.out.println("===================================== Total CPU Utilization ===============================");
+		System.out.println(" CPU current load "+ cpuLoad * 100 + " %");
+	}
+
+}

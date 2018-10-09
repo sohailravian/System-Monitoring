@@ -1,0 +1,29 @@
+package com.gcaa.resource.metrics.repository;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.gcaa.metrics.domain.model.Metrics;
+import com.gcaa.metrics.domain.model.Utilization;
+import com.gcaa.resource.metrics.mapper.MetricsMapper;
+import com.gcaa.resource.metrics.mapper.UtilizationMapper;
+
+@Repository
+public class MyBatisUtilizationRepository implements UtilizationRepository {
+
+	private static Logger LOGGER = LoggerFactory.getLogger(MyBatisUtilizationRepository.class);
+	
+	@Autowired
+	private UtilizationMapper utilizationMapper;
+	
+	@Override
+	public boolean save(Utilization utilization) {
+		
+		return utilizationMapper.save(utilization);
+		
+	}
+
+
+}

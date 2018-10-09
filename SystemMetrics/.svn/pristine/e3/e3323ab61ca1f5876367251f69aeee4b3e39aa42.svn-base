@@ -1,0 +1,10 @@
+package com.gcaa.status.metrics;
+
+
+public class StatusMetricsCollectorApplication 
+{
+    public static void main( String[] args )
+    {
+    	
+    }
+}

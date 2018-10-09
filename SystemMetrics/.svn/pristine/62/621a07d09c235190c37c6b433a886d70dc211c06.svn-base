@@ -1,0 +1,27 @@
+package com.gcaa.metrics.domain.util;
+
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+
+public class NumberUtils {
+
+	public static float floatFormatter(float value) { 
+		DecimalFormat df = new DecimalFormat("#.00");
+		Float formatedFloat= Float.parseFloat (df.format(value));
+		return formatedFloat.floatValue();
+	}
+	
+	public static float floatFormatter(double value) { 
+		return floatFormatter (Float.parseFloat (String.format("%.2f", value)));
+	}
+	
+	public static void main(String[] args) {
+		double d=2.4585360229313673E-4;
+//		String plain= exponentToFloatFormat(d);
+	//	float f= floatFormatter(plain);
+		System.out.println(String.format("%.4f",d));
+		//System.out.println(floatFormatter(d));
+		
+	}
+
+}

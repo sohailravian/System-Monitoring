@@ -1,0 +1,71 @@
+package com.gcaa.resource.metrics.collector.job;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+import com.gcaa.metrics.domain.model.Category;
+import com.gcaa.metrics.domain.model.HardDisk;
+import com.gcaa.metrics.domain.model.Resource;
+import com.gcaa.metrics.domain.model.Type;
+import com.gcaa.metrics.domain.model.Utilization;
+import com.gcaa.resource.metrics.collector.DiskSpaceCollector;
+import com.gcaa.resource.metrics.config.DiskSpaceCollectorProperties;
+import com.gcaa.resource.metrics.config.DiskSpaceCollectorProperties.MountPoint;
+import com.gcaa.resource.metrics.service.ApplicationService;
+
+@Component
+public class DiskSpaceCollectorJob extends CollectorJob {
+	
+	private ApplicationService 	applicationService;
+	private DiskSpaceCollector diskSpaceCollector;
+	private DiskSpaceCollectorProperties diskProperties; 
+	
+	private static Logger LOGGER = LoggerFactory.getLogger(DiskSpaceCollectorJob.class);
+	
+	@Autowired
+	public DiskSpaceCollectorJob(ApplicationService applicationService, DiskSpaceCollector diskCollector, DiskSpaceCollectorProperties diskProperties) {
+		
+		this.applicationService = applicationService;
+		this.diskSpaceCollector	= diskCollector;
+		this.diskProperties 	= diskProperties;
+	}
+	
+	@Scheduled(cron = "${disk.frequency-cron}")
+	public void collectScheduledDiskSpace() {
+		LOGGER.info("{ Disk space collection job started }");
+		collectDisksSpace();
+		LOGGER.info("{ Disk space collection job finished }");
+	}
+	
+	public void collectDisksSpace(){
+		
+		if(!diskProperties.getMountPoints().isEmpty()) {
+			List<Utilization> UtilizationList = new ArrayList<Utilization>();
+			double totalSpace = 0d;
+			double totalUsedSpace = 0d;
+		for (MountPoint mountPoint : diskProperties.getMountPoints()) {
+				Optional<Resource> disk = diskSpaceCollector.collectDiskSpaceByMountPoint(mountPoint);
+				if(disk.isPresent()) {
+					
+					LOGGER.info("Drive found with Mount Point {" + mountPoint + " }");
+					totalSpace = totalSpace + disk.get().getTotal();
+					totalUsedSpace = totalUsedSpace + disk.get().getUsed();
+					
+					Utilization utilization = utilization(Type.SYSTEM, Category.DISK, ((HardDisk)disk.get()).getName(), disk.get());
+					UtilizationList.add(utilization);
+				}
+			}
+			
+			Utilization utilization = utilization(Type.SYSTEM, Category.DISK, Category.DISK.name(), new HardDisk(totalUsedSpace, totalSpace, Category.DISK.name()));
+			UtilizationList.add(utilization);
+			applicationService.saveUtilizationInBatch(UtilizationList);
+		}
+				
+	}
+
+}

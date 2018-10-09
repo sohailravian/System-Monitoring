@@ -1,0 +1,5 @@
+package com.gcaa.metrics.domain.model;
+
+public abstract class Resource {
+
+}

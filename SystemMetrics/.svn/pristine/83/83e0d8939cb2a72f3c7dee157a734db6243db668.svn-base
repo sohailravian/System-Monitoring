@@ -1,0 +1,10 @@
+package com.gcaa.resource.metrics.collector;
+
+import com.gcaa.metrics.domain.model.Resource;
+
+public interface Collector {
+	
+	public Resource collect();
+	public Resource collectByProcessId(int processId);
+	
+}

@@ -1,0 +1,13 @@
+package com.gcaa.resource.metrics.mapper;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+
+import com.gcaa.metrics.domain.model.Metrics;
+
+@Mapper
+public interface MetricsMapper {
+	
+	boolean save(Metrics metrics);
+	
+}

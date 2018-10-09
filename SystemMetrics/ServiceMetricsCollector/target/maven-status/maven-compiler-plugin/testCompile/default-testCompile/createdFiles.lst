@@ -1,0 +1,3 @@
+com\gcaa\service\metrics\stats\BorkerStatsTest.class
+com\gcaa\service\metrics\stats\QueueStatsTest.class
+com\gcaa\service\metrics\ServiceMetricsCollectionApplication.class

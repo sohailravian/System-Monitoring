@@ -1,0 +1,27 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.gcaa.resource.metrics.config.MemoryCollectorProperties",
+      "name": "memory",
+      "type": "com.gcaa.resource.metrics.config.MemoryCollectorProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.gcaa.resource.metrics.config.MemoryCollectorProperties",
+      "name": "memory.frequency-cron",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.resource.metrics.config.MemoryCollectorProperties",
+      "name": "memory.process-ids",
+      "type": "java.util.List<com.gcaa.resource.metrics.config.MemoryCollectorProperties.Process>"
+    },
+    {
+      "sourceType": "com.gcaa.resource.metrics.config.MemoryCollectorProperties",
+      "name": "memory.unit",
+      "type": "java.lang.Long"
+    }
+  ]
+}

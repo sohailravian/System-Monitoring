@@ -1,0 +1,12 @@
+package com.gcaa.resource.metrics;
+
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+@EnableTransactionManagement
+public class MetricsCollectorApplicationTest {
+
+	public static void main(String[] args) {
+		
+	}
+}

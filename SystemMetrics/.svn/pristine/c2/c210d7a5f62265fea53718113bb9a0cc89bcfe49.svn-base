@@ -1,0 +1,9 @@
+package com.gcaa.metrics.domain.model;
+
+public class Memory extends Resource {
+
+	public Memory(double used, double total) {
+		super(used, total);
+	}
+	
+}

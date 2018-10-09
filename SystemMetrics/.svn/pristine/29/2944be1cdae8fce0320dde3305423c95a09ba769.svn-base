@@ -1,0 +1,11 @@
+package com.gcaa.resource.metrics.repository;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import com.gcaa.metrics.domain.model.Utilization;
+
+public interface UtilizationRepository {
+		
+	public boolean save(Utilization utilization);
+
+}

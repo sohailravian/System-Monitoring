@@ -1,0 +1,28 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties",
+      "name": "status",
+      "type": "com.gcaa.status.metrics.config.StatusCollectorProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties",
+      "name": "status.frequency-cron",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties",
+      "name": "status.process-ids",
+      "type": "java.util.List<com.gcaa.status.metrics.config.CollectorProperties.Process>"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties",
+      "defaultValue": 0,
+      "name": "status.unit",
+      "type": "java.lang.Long"
+    }
+  ]
+}

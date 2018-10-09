@@ -1,0 +1,61 @@
+package com.gcaa.resource.metrics.collector.job;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+import com.gcaa.metrics.domain.model.Category;
+import com.gcaa.metrics.domain.model.HardDisk;
+import com.gcaa.metrics.domain.model.Resource;
+import com.gcaa.metrics.domain.model.Type;
+import com.gcaa.metrics.domain.model.Utilization;
+import com.gcaa.resource.metrics.collector.DiskSpaceCollector;
+import com.gcaa.resource.metrics.service.ApplicationService;
+
+@Component
+public class DiskSpaceCollectorJob extends CollectorJob {
+	
+	private ApplicationService applicationService;
+	private DiskSpaceCollector memoryCollector;
+	
+	@Autowired
+	public DiskSpaceCollectorJob(ApplicationService applicationService, DiskSpaceCollector memoryCollector) {
+		
+		this.applicationService = applicationService;
+		this.memoryCollector	= memoryCollector;
+		
+	}
+	
+	@Scheduled(cron = "${disk.frequency-cron}")
+	public void collectScheduledMemoryUtilization() {
+		collectDiskMemory();
+		collectDisksMemory();
+	}
+	
+	public void collectDisksMemory(){
+		
+		List<Utilization> UtilizationList = new ArrayList<Utilization>();
+		List<? extends Resource> disks= memoryCollector.collectDisks();
+		
+		if(!disks.isEmpty() ) {
+			for (Resource disk : disks) {
+				Utilization utilization = utilization(Type.SYSTEM, Category.DISK, ((HardDisk)disk).getName(), disk);
+				UtilizationList.add(utilization);
+			}
+			
+			applicationService.saveUtilizationInBatch(UtilizationList);
+		}
+				
+	}
+	
+	public void collectDiskMemory(){
+		Resource disk= memoryCollector.collectTotalDisk();
+		Utilization utilization = utilization(Type.SYSTEM, Category.DISK, Category.DISK.name(), disk);
+		applicationService.saveUtilization(utilization);
+		
+	}
+	
+
+
+}

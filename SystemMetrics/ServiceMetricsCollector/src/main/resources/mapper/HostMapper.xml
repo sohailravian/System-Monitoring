@@ -1,0 +1,18 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.gcaa.service.metrics.mapper.HostMapper"> 
+	<select id="getHostByName" parameterType="string" resultMap="hostResult" resultType="com.gcaa.metrics.domain.model.Host">
+		select h.ID,h.NAME,h.IP from HOST_LOOKUP h 
+		where h.NAME= #{name} 
+	</select>
+	
+	<resultMap type="com.gcaa.metrics.domain.model.Host" id="hostResult">
+		<constructor>
+			<arg column="NAME" javaType="String" jdbcType="VARCHAR"/>
+			<arg column="IP" javaType="String" jdbcType="VARCHAR"/>
+		</constructor>
+		<id column="ID" property="id"/>
+	</resultMap>	
+		
+</mapper>	

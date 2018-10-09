@@ -1,0 +1,3 @@
+com\gcaa\resource\metrics\MetricsCollectorApplicationTest.class
+com\gcaa\resource\metrics\MyBatisMetricsTest.class
+com\gcaa\resource\metrics\ResourceMetricsApplicationServiceTest.class

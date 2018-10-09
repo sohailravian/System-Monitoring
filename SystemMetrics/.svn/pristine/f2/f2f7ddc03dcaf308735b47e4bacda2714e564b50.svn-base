@@ -1,0 +1,32 @@
+package com.gcaa.metrics.domain.model;
+
+public class Memory extends Resource {
+	
+	private float used;
+	private float total;
+	
+	public Memory(float used, float total) {
+		super();
+		this.used = used;
+		this.total = total;
+	}
+	public float getUsed() {
+		return used;
+	}
+	public void setUsed(float used) {
+		this.used = used;
+	}
+	public float getTotal() {
+		return total;
+	}
+	public void setTotal(float total) {
+		this.total = total;
+	}
+	
+	@Override
+	public String toString() {
+		return "Memory [used=" + used + ", free=" + (total - used) + " , total=" + total + "]";
+	}
+	
+	
+}

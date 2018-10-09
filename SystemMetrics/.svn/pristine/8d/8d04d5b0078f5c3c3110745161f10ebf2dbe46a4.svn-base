@@ -1,0 +1,93 @@
+package com.gcaa.resource.metrics.collector;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import com.gcaa.metrics.domain.model.CPU;
+import com.gcaa.metrics.domain.model.Resource;
+import oshi.SystemInfo;
+import oshi.hardware.CentralProcessor;
+import oshi.software.os.OSProcess;
+import oshi.software.os.OperatingSystem.ProcessSort;
+import static com.gcaa.metrics.domain.util.NumberUtils.*;
+import java.util.Date;
+import java.util.Map;
+import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
+
+@Component
+public class PerformanceCollector implements Collector {
+
+	private SystemInfo systemInfo ;
+	
+	private static Logger LOGGER = LoggerFactory.getLogger(PerformanceCollector.class);
+	
+	public static transient long previousTime;
+	
+	public static Map<Integer,Long> childProcessPreviousTime = new ConcurrentHashMap<Integer,Long>();
+	
+	public static transient long previousScheduleTime;
+	
+	@Autowired
+	public PerformanceCollector(SystemInfo systemInfo) {
+		this.systemInfo = systemInfo;
+	}
+	
+	@Override
+	public Optional<Resource> collect() {
+
+		LOGGER.info("{ Performance/CPU Metrics Collector Started }");
+		double used = Float.valueOf(Double.toString(systemInfo.getHardware().getProcessor().getSystemCpuLoad() * HUNDRED_PERCENT)); 
+		double total = HUNDRED_PERCENT;
+		
+		CPU cpu = new CPU(doubleFormatter(used), doubleFormatter(total));
+		LOGGER.info("{ Performance/CPU Metrics Collector Finished { " + cpu + " }}");
+		return Optional.ofNullable(cpu);
+
+	}
+
+	@Override
+	public Optional<Resource> collectByProcessId(int processId) {
+		
+		Optional<Resource> cpu = Optional.empty();
+		LOGGER.info("{ Performance/CPU Metrics Collector Started With Process { " + processId + " }}");
+		OSProcess process = systemInfo.getOperatingSystem().getProcess(processId);
+		if(null == process) {
+			LOGGER.info("{ Performance/CPU metrics not found with process { "+ processId +" }}");
+		}else {
+			
+			CentralProcessor processor = systemInfo.getHardware().getProcessor();
+		    int cpuNumber = processor.getLogicalProcessorCount();
+			double total = Double.valueOf(Double.toString(systemInfo.getHardware().getProcessor().getSystemCpuLoad() * HUNDRED_PERCENT));
+			long currentTime = process.getKernelTime() + process.getUserTime();
+			long timeDifference = currentTime - previousTime;
+			
+			double schdulerTime = (double) (new Date().getTime() - previousScheduleTime);
+			double processCpu = ( HUNDRED_PERCENT * ( timeDifference / schdulerTime ) ) / cpuNumber;
+			
+			previousTime = currentTime;
+			previousScheduleTime = new Date().getTime();
+			
+			OSProcess[] osProcesses = systemInfo.getOperatingSystem().getChildProcesses(processId, 0, ProcessSort.CPU);
+			for (OSProcess osProcess : osProcesses) {
+					long childCurrentTime = osProcess.getKernelTime() + osProcess.getUserTime() ;
+					Long childPrevioustime = childProcessPreviousTime.get(osProcess.getProcessID());
+					long childTimeDifference = childCurrentTime - (childPrevioustime != null ? childPrevioustime : 0);
+					processCpu =  processCpu + (HUNDRED_PERCENT * ( (double)childTimeDifference / schdulerTime) ) / cpuNumber ;
+					
+					childProcessPreviousTime.put(osProcess.getProcessID(), childCurrentTime);
+			}
+			
+			double used = doubleFormatter(processCpu);
+			cpu = Optional.ofNullable(new CPU(doubleFormatter(used) ,doubleFormatter(total)));
+		}
+	
+		LOGGER.info("{ Performance/CPU Metrics Collector Finished. { " + cpu + " }}");
+		return cpu;
+
+	}
+
+}
+
+	

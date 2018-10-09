@@ -1,0 +1,128 @@
+package com.gcaa.resource.metrics.collector;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import com.gcaa.metrics.domain.model.CPU;
+import com.gcaa.metrics.domain.model.Resource;
+import com.mysql.fabric.xmlrpc.base.Data;
+
+import oshi.SystemInfo;
+import oshi.hardware.CentralProcessor;
+import oshi.software.os.OSProcess;
+import oshi.util.Util;
+import static com.gcaa.metrics.domain.util.NumberUtils.*;
+import java.io.IOException;
+import java.util.Date;
+
+@Component
+public class PerformanceCollector implements Collector {
+
+	private SystemInfo systemInfo ;
+	
+	private static Logger LOGGER = LoggerFactory.getLogger(PerformanceCollector.class);
+	
+	private static transient CentralProcessor processor;
+
+	public static transient long previousTime;
+	
+	public static transient long previousScheduleTime;
+	
+	@Autowired
+	public PerformanceCollector(SystemInfo systemInfo) {
+		this.systemInfo = systemInfo;
+	}
+	
+	static{
+		
+	}
+
+	@Override
+	public Resource collect() {
+
+		LOGGER.info("{ Performance/CPU Metrics Collector Started. }");
+		float used = Float.valueOf(Double.toString(systemInfo.getHardware().getProcessor().getSystemCpuLoad() * HUNDRED_PERCENT)); 
+		float total = HUNDRED_PERCENT;
+		
+		CPU cpu = new CPU(floatFormatter(used), floatFormatter(total));
+		LOGGER.info("{ Performance/CPU Metrics Collector Finished. " + cpu + " }");
+		return cpu;
+
+	}
+
+	@Override
+	public Resource collectByProcessId(int processId) {
+		
+		CPU cpu=null;
+		//processId= 51124;
+		
+		LOGGER.info("Performance/CPU Metrics Collector Started With Process { " + processId + " }");
+
+		int processId1 =  systemInfo.getOperatingSystem().getProcessId();
+		OSProcess process = systemInfo.getOperatingSystem().getProcess(processId1);
+	//	int cpuNumber = systemInfo.getHardware().getProcessor().getLogicalProcessorCount();
+		
+		if(null == process) {
+			LOGGER.info("Performance/CPU metrics not found with process { "+ processId +" }");
+		}else {
+			
+			CentralProcessor processor = systemInfo.getHardware().getProcessor();
+		    int cpuNumber = processor.getLogicalProcessorCount();
+			float total = Float.valueOf(Double.toString(systemInfo.getHardware().getProcessor().getSystemCpuLoad() * HUNDRED_PERCENT));
+			long currentTime = process.getKernelTime() + process.getUserTime();
+			long timeDifference = currentTime - previousTime;
+			
+			double processCpu = 100 * ( timeDifference / (double)( new Date().getTime() - previousScheduleTime) );
+			double used = floatFormatter(processCpu  / cpuNumber);
+			cpu = new CPU(floatFormatter(used) ,floatFormatter(total));
+			
+			previousTime = currentTime;
+			previousScheduleTime = new Date().getTime();
+			
+			 System.out.format("K: %d, U: %d, diff: %d, CPU: %.1f%n", process.getKernelTime(), process.getUserTime(),
+		                timeDifference, processCpu);
+			
+		}
+	
+		LOGGER.info("{ Performance/CPU Metrics Collector Finished. " + cpu + " }");
+		
+		return cpu;
+
+	}
+
+	public static void main(String[] args) throws InterruptedException, IOException {
+		cpuUtilizationForProcess();
+	}
+	
+	
+	public static void cpuUtilizationForProcess() {
+		
+		while(true) {
+ 		
+		
+		SystemInfo systemInfo = new SystemInfo();
+		
+		int processId = systemInfo.getOperatingSystem().getProcessId();
+		OSProcess process = systemInfo.getOperatingSystem().getProcess(5832);
+		//OSProcess process = systemInfo.getOperatingSystem().getProcess(processId);
+		
+	    long currentTime = process.getKernelTime() + process.getUserTime() ;
+		long timeDifference = currentTime - previousTime;
+		
+		double processCpu =  (100 * ( (double)timeDifference / (double)( new Date().getTime() - previousScheduleTime) ) ) ;
+		
+		previousTime = currentTime;
+		previousScheduleTime = new Date().getTime();
+		
+		 System.out.format("K: %d, U: %d, diff: %d, CPU: %.2f%n", process.getKernelTime(), process.getUserTime(),
+	                timeDifference, processCpu);
+		
+		Util.sleep(5000);
+			
+		}
+	}
+	
+}
+
+	

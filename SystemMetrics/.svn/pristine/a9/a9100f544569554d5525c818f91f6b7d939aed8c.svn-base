@@ -1,0 +1,10 @@
+package com.gcaa.metrics.domain.model;
+
+public class CPU extends Resource {
+
+	public CPU(double used, double total) {
+		super(used, total);
+	}
+	
+	
+}

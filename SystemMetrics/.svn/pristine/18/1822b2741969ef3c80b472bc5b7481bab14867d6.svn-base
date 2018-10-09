@@ -1,0 +1,83 @@
+package com.gcaa.resource.metrics.collector.job;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+import com.gcaa.metrics.domain.model.Category;
+import com.gcaa.metrics.domain.model.Resource;
+import com.gcaa.metrics.domain.model.Type;
+import com.gcaa.metrics.domain.model.Utilization;
+import com.gcaa.metrics.domain.util.FileUtils;
+import com.gcaa.resource.metrics.collector.PerformanceCollector;
+import com.gcaa.resource.metrics.config.PerformanceCollectorProperties;
+import com.gcaa.resource.metrics.service.ApplicationService;
+import static com.gcaa.metrics.domain.util.NumberUtils.*;
+import oshi.SystemInfo;
+
+@Component
+public class PerformanceCollectorJob extends CollectorJob {
+	
+	private ApplicationService applicationService;
+	private PerformanceCollectorProperties performanceProperties;
+	private PerformanceCollector performanceCollector;
+	
+	@Autowired
+	private SystemInfo systemInfo;
+	
+	private static Logger LOGGER = LoggerFactory.getLogger(PerformanceCollectorJob.class);
+	
+	@Autowired
+	public PerformanceCollectorJob(ApplicationService applicationService, PerformanceCollectorProperties memoryProperties, PerformanceCollector memoryCollector) {
+		
+		this.applicationService = applicationService;
+		this.performanceProperties	= memoryProperties; 
+		this.performanceCollector	= memoryCollector;
+		
+	}
+	
+	@Scheduled(cron = "${cpu.frequency-cron}")
+	public void collectScheduledMemoryUtilization() {
+		collectSystemPerformance();
+		collectPerformanceForProcesses();
+	}
+	
+	public void collectPerformanceForProcesses(){
+		
+		List<Utilization> UtilizationList = new ArrayList<Utilization>();
+		if(!performanceProperties.getProcessIds().isEmpty()){
+			float totalCpuUsed = Float.valueOf(Double.toString(systemInfo.getHardware().getProcessor().getSystemCpuLoad() * HUNDRED_PERCENT));
+			performanceProperties.getProcessIds().forEach(process -> {
+					
+					Optional<Integer> processId = FileUtils.getProcessIdByFilePath(process.getFilePath());
+					if(processId.isPresent()) {
+						
+						LOGGER.info("Process id {" + processId.get() +" } found with path { " + process.getFilePath() + " }");
+						Resource cpu= performanceCollector.collectByProcessId(processId.get());
+						if(cpu.getUsed() > 0)
+							cpu.setTotal(floatFormatter(totalCpuUsed));
+						
+						Utilization utilization = utilization(Type.SYSTEM, Category.CPU, Category.categoryByCode(process.getName()).name(), cpu);
+						UtilizationList.add(utilization);
+					}
+				});
+			
+				applicationService.saveUtilizationInBatch(UtilizationList);
+			
+		};
+	}
+	
+	public void collectSystemPerformance(){
+		Resource memory= performanceCollector.collect();
+		Utilization utilization = utilization(Type.SYSTEM, Category.CPU, Type.SYSTEM.name(), memory);
+		applicationService.saveUtilization(utilization);
+		
+	}
+	
+
+
+}

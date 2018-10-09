@@ -1,0 +1,67 @@
+package com.gcaa.resource.metrics;
+
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.util.Date;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.context.annotation.Import;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.gcaa.metrics.domain.model.Category;
+import com.gcaa.metrics.domain.model.Host;
+import com.gcaa.metrics.domain.model.Measurement;
+import com.gcaa.metrics.domain.model.Metrics;
+import com.gcaa.metrics.domain.model.Type;
+import com.gcaa.resource.metrics.ApplicationService;
+import com.gcaa.resource.metrics.repository.MetricsRepository;
+import com.gcaa.resource.metrics.repository.MyBatisMetricsRepository;
+import com.gcaa.resource.metrics.repository.MyBatisUtilizationRepository;
+
+import oshi.SystemInfo;
+
+@RunWith(SpringRunner.class)
+@MybatisTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+@Import({MyBatisMetricsRepository.class ,
+		MyBatisUtilizationRepository.class,
+		ApplicationService.class, })
+@Rollback(value = false)
+public class ResourceMetricsApplicationServiceTest {
+	
+	@Autowired
+	private ApplicationService applicationService;
+	
+	private SystemInfo info;
+	
+	@Before
+	public void init() {
+		info = new SystemInfo();
+	}
+	
+	@Test
+	public void saveMetrics() {
+		
+		Metrics metrics = new Metrics(new Host(1, "Machine 1"), 
+									  Type.SERVICE, 
+									  Category.RIE, 
+									  Measurement.UPSTREAM_SERVERS, 
+									  new Date(), 
+									  2);
+		
+		boolean result = applicationService.saveMetrics(metrics);
+		assertTrue(result);
+		
+		
+	}
+	
+	
+}

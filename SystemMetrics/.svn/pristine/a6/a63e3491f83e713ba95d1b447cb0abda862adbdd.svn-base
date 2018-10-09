@@ -1,0 +1,83 @@
+package com.gcaa.resource.metrics.collector;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import com.gcaa.metrics.domain.model.CPU;
+import com.gcaa.metrics.domain.model.Resource;
+import oshi.SystemInfo;
+import oshi.hardware.CentralProcessor;
+import oshi.software.os.OSProcess;
+import static com.gcaa.metrics.domain.util.NumberUtils.*;
+import java.io.IOException;
+
+@Component
+public class PerformanceCollector implements Collector {
+
+	private SystemInfo systemInfo;
+	
+	private static Logger LOGGER = LoggerFactory.getLogger(PerformanceCollector.class);
+
+	public static transient double previousTime=-1;
+	
+	@Autowired
+	public PerformanceCollector(SystemInfo systemInfo) {
+		this.systemInfo = systemInfo;
+	}
+
+	@Override
+	public Resource collect() {
+
+		LOGGER.info("{ Performance/CPU Metrics Collector Started. }");
+		float used = Float.valueOf(Double.toString(systemInfo.getHardware().getProcessor().getSystemCpuLoad() * HUNDRED_PERCENT)); 
+		float total = HUNDRED_PERCENT;
+		
+		CPU cpu = new CPU(floatFormatter(used), floatFormatter(total));
+		LOGGER.info("{ Performance/CPU Metrics Collector Finished. " + cpu + " }");
+		return cpu;
+
+	}
+
+	@Override
+	public Resource collectByProcessId(int processId) {
+		CPU cpu=null;
+		
+		LOGGER.info("Performance/CPU Metrics Collector Started With Process { " + processId + " }");
+		OSProcess process = systemInfo.getOperatingSystem().getProcess(processId);
+	//	int cpuNumber = systemInfo.getHardware().getProcessor().getLogicalProcessorCount();
+		
+		if(null == process) {
+			cpu= new CPU(0, 0);
+			LOGGER.info("Performance/CPU metrics not found with process { "+ processId +" }");
+		}else {
+			
+			CentralProcessor processor = systemInfo.getHardware().getProcessor();
+		    int cpuNumber = processor.getLogicalProcessorCount();
+			float used = 0;
+			float total = Float.valueOf(Double.toString(systemInfo.getHardware().getProcessor().getSystemCpuLoad() * HUNDRED_PERCENT));
+			double cpuUsage = ( 100d * (((systemInfo.getHardware().getProcessor().getSystemUptime() )  - (process.getKernelTime() + process.getUserTime())) / (double) process.getUpTime())) / cpuNumber;
+			
+			used = floatFormatter( cpuUsage *  (systemInfo.getHardware().getProcessor().getSystemUptime())) / 1000;
+		
+			double usedCal = process.calculateCpuPercent();
+			
+		//	SYSTEM_INFO.
+			
+			cpu = new CPU(floatFormatter(  (total  *  ( used /100) )  ),floatFormatter(total));	
+			//process.get
+			
+			//process.calculateCpuPercent()
+		}
+	
+		LOGGER.info("{ Performance/CPU Metrics Collector Finished. " + cpu + " }");
+		return cpu;
+
+	}
+
+	public static void main(String[] args) throws InterruptedException, IOException {
+	
+	}
+}
+
+	

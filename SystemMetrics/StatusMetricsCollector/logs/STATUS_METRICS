@@ -1,0 +1,741 @@
+01-36-2018 10:36:46.737  INFO 36260 --- [main] .g.s.m.StatusMetricsCollectorApplication : Starting StatusMetricsCollectorApplication on SZC-CNS-WKS-004 with PID 36260 (started by msohail in D:\gcaa\workspaces\sts workspace\SystemMetrics\StatusMetricsCollector)
+01-36-2018 10:36:46.741  INFO 36260 --- [main] .g.s.m.StatusMetricsCollectorApplication : No active profile set, falling back to default profiles: default
+01-36-2018 10:36:46.826  INFO 36260 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1534f01b: startup date [Mon Oct 01 10:36:46 GMT+04:00 2018]; root of context hierarchy
+01-36-2018 10:36:48.592  INFO 36260 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+01-36-2018 10:36:48.672  INFO 36260 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+01-36-2018 10:36:48.672  INFO 36260 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.32
+01-36-2018 10:36:48.679  INFO 36260 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_181/bin/server;C:/Program Files/Java/jre1.8.0_181/bin;C:/Program Files/Java/jre1.8.0_181/lib/amd64;C:\Perl64\site\bin;C:\Perl64\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\gcaa\softwares\apache-maven-3.5.4-bin\apache-maven-3.5.4\bin;C:\Program Files\PuTTY\;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Brackets\command;C:\Program Files\SlikSvn\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\;C:\Program Files\Microsoft SQL Server\140\Tools\Binn\;C:\Program Files\Microsoft SQL Server\140\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\ManagementStudio\;%LUA_PATH%;C:\Program Files\nodejs\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\msohail\AppData\Local\Microsoft\WindowsApps;C:\Users\msohail\AppData\Roaming\npm;D:\gcaa\softwares\spring-tool-suite-3.9.5.RELEASE-e4.8.0-win32-x86_64\sts-bundle\sts-3.9.5.RELEASE;;.]
+01-36-2018 10:36:49.012  INFO 36260 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+01-36-2018 10:36:49.013  INFO 36260 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2187 ms
+01-36-2018 10:36:49.208  INFO 36260 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+01-36-2018 10:36:49.213  INFO 36260 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+01-36-2018 10:36:49.214  INFO 36260 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+01-36-2018 10:36:49.214  INFO 36260 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+01-36-2018 10:36:49.214  INFO 36260 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+01-36-2018 10:36:49.731  INFO 36260 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+01-36-2018 10:36:50.149  INFO 36260 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+01-36-2018 10:36:50.203 DEBUG 36260 --- [main] c.g.s.m.mapper.HostMapper.getHostByName  : ==>  Preparing: select h.ID,h.NAME,h.IP from HOST_LOOKUP h where h.NAME= ? 
+01-36-2018 10:36:50.291 DEBUG 36260 --- [main] c.g.s.m.mapper.HostMapper.getHostByName  : ==> Parameters: SZC-CNS-WKS-004.szcgcaa.local(String)
+01-36-2018 10:36:50.321 DEBUG 36260 --- [main] c.g.s.m.mapper.HostMapper.getHostByName  : <==      Total: 1
+01-36-2018 10:36:51.461  INFO 36260 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+01-36-2018 10:36:51.667  INFO 36260 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1534f01b: startup date [Mon Oct 01 10:36:46 GMT+04:00 2018]; root of context hierarchy
+01-36-2018 10:36:51.732  INFO 36260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+01-36-2018 10:36:51.734  INFO 36260 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+01-36-2018 10:36:51.767  INFO 36260 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+01-36-2018 10:36:51.767  INFO 36260 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+01-36-2018 10:36:52.078  INFO 36260 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+01-36-2018 10:36:52.080  INFO 36260 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+01-36-2018 10:36:52.085  INFO 36260 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+01-36-2018 10:36:52.096  INFO 36260 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+01-36-2018 10:36:52.152  INFO 36260 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+01-36-2018 10:36:52.161  INFO 36260 --- [main] .g.s.m.StatusMetricsCollectorApplication : Started StatusMetricsCollectorApplication in 6.12 seconds (JVM running for 11.763)
+01-37-2018 10:37:00.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-37-2018 10:37:00.006  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-37-2018 10:37:00.009  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-37-2018 10:37:00.009  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-37-2018 10:37:00.009  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-37-2018 10:37:01.638  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-37-2018 10:37:01.640  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-37-2018 10:37:01.641  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-37-2018 10:37:01.641  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-37-2018 10:37:01.641  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-37-2018 10:37:01.677  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-37-2018 10:37:01.677  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-37-2018 10:37:01.686 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-37-2018 10:37:01.691  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-37-2018 10:37:01.695 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-37-2018 10:37:01.700 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:37:01.64(Timestamp), true(Boolean), RIE(String)
+01-37-2018 10:37:01.701 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-37-2018 10:37:01.702 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-37-2018 10:37:01.703 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:37:01.677(Timestamp), false(Boolean), RFE(String)
+01-37-2018 10:37:01.715 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-37-2018 10:37:01.716 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-37-2018 10:37:01.717  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-37-2018 10:37:30.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-37-2018 10:37:30.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-37-2018 10:37:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-37-2018 10:37:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-37-2018 10:37:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-37-2018 10:37:30.051  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-37-2018 10:37:30.051  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-37-2018 10:37:30.052  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-37-2018 10:37:30.052  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-37-2018 10:37:30.052  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-37-2018 10:37:30.090  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-37-2018 10:37:30.090  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-37-2018 10:37:30.092 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-37-2018 10:37:30.092  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-37-2018 10:37:30.092 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-37-2018 10:37:30.093 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:37:30.051(Timestamp), true(Boolean), RIE(String)
+01-37-2018 10:37:30.094 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-37-2018 10:37:30.095 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-37-2018 10:37:30.095 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:37:30.091(Timestamp), false(Boolean), RFE(String)
+01-37-2018 10:37:30.096 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-37-2018 10:37:30.096 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-37-2018 10:37:30.097  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-38-2018 10:38:00.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-38-2018 10:38:00.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-38-2018 10:38:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-38-2018 10:38:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-38-2018 10:38:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-38-2018 10:38:00.068  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-38-2018 10:38:00.068  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-38-2018 10:38:00.069  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-38-2018 10:38:00.069  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-38-2018 10:38:00.069  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-38-2018 10:38:00.129  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-38-2018 10:38:00.129  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-38-2018 10:38:00.131 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-38-2018 10:38:00.131  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-38-2018 10:38:00.131 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-38-2018 10:38:00.132 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:38:00.068(Timestamp), true(Boolean), RIE(String)
+01-38-2018 10:38:00.133 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-38-2018 10:38:00.133 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-38-2018 10:38:00.175 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:38:00.129(Timestamp), false(Boolean), RFE(String)
+01-38-2018 10:38:00.176 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-38-2018 10:38:00.176 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-38-2018 10:38:00.177  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-38-2018 10:38:30.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-38-2018 10:38:30.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-38-2018 10:38:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-38-2018 10:38:30.005  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-38-2018 10:38:30.005  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-38-2018 10:38:30.080  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-38-2018 10:38:30.080  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-38-2018 10:38:30.082  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-38-2018 10:38:30.082  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-38-2018 10:38:30.082  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-38-2018 10:38:30.117  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-38-2018 10:38:30.118  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-38-2018 10:38:30.119 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-38-2018 10:38:30.119  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-38-2018 10:38:30.119 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-38-2018 10:38:30.121 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:38:30.08(Timestamp), true(Boolean), RIE(String)
+01-38-2018 10:38:30.122 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-38-2018 10:38:30.122 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-38-2018 10:38:30.123 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:38:30.118(Timestamp), false(Boolean), RFE(String)
+01-38-2018 10:38:30.124 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-38-2018 10:38:30.124 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-38-2018 10:38:30.125  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-39-2018 10:39:00.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-39-2018 10:39:00.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-39-2018 10:39:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-39-2018 10:39:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-39-2018 10:39:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-39-2018 10:39:00.080  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-39-2018 10:39:00.081  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-39-2018 10:39:00.082  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-39-2018 10:39:00.082  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-39-2018 10:39:00.083  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-39-2018 10:39:00.120  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-39-2018 10:39:00.120  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-39-2018 10:39:00.160 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-39-2018 10:39:00.160  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-39-2018 10:39:00.160 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-39-2018 10:39:00.161 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:39:00.081(Timestamp), true(Boolean), RIE(String)
+01-39-2018 10:39:00.162 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-39-2018 10:39:00.162 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-39-2018 10:39:00.163 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:39:00.12(Timestamp), false(Boolean), RFE(String)
+01-39-2018 10:39:00.164 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-39-2018 10:39:00.164 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-39-2018 10:39:00.165  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-39-2018 10:39:30.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-39-2018 10:39:30.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-39-2018 10:39:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-39-2018 10:39:30.005  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-39-2018 10:39:30.005  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-39-2018 10:39:30.070  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-39-2018 10:39:30.070  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-39-2018 10:39:30.071  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-39-2018 10:39:30.071  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-39-2018 10:39:30.071  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-39-2018 10:39:30.107  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-39-2018 10:39:30.107  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-39-2018 10:39:30.109 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-39-2018 10:39:30.109  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-39-2018 10:39:30.109 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-39-2018 10:39:30.110 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:39:30.07(Timestamp), true(Boolean), RIE(String)
+01-39-2018 10:39:30.111 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-39-2018 10:39:30.111 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-39-2018 10:39:30.111 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:39:30.107(Timestamp), false(Boolean), RFE(String)
+01-39-2018 10:39:30.112 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-39-2018 10:39:30.113 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-39-2018 10:39:30.114  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-40-2018 10:40:00.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-40-2018 10:40:00.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-40-2018 10:40:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-40-2018 10:40:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-40-2018 10:40:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-40-2018 10:40:00.067  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-40-2018 10:40:00.068  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-40-2018 10:40:00.069  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-40-2018 10:40:00.069  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-40-2018 10:40:00.069  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-40-2018 10:40:00.109  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-40-2018 10:40:00.109  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-40-2018 10:40:00.111 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-40-2018 10:40:00.112  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-40-2018 10:40:00.112 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-40-2018 10:40:00.113 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:40:00.068(Timestamp), true(Boolean), RIE(String)
+01-40-2018 10:40:00.114 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-40-2018 10:40:00.114 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-40-2018 10:40:00.115 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:40:00.109(Timestamp), false(Boolean), RFE(String)
+01-40-2018 10:40:00.116 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-40-2018 10:40:00.116 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-40-2018 10:40:00.117  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-40-2018 10:40:30.001  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-40-2018 10:40:30.001  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-40-2018 10:40:30.003  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-40-2018 10:40:30.003  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-40-2018 10:40:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-40-2018 10:40:30.071  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-40-2018 10:40:30.071  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-40-2018 10:40:30.073  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-40-2018 10:40:30.073  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-40-2018 10:40:30.073  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-40-2018 10:40:30.111  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-40-2018 10:40:30.111  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-40-2018 10:40:30.113 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-40-2018 10:40:30.113  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-40-2018 10:40:30.114 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-40-2018 10:40:30.116 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:40:30.071(Timestamp), true(Boolean), RIE(String)
+01-40-2018 10:40:30.117 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-40-2018 10:40:30.118 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-40-2018 10:40:30.120 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:40:30.112(Timestamp), false(Boolean), RFE(String)
+01-40-2018 10:40:30.121 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-40-2018 10:40:30.121 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-40-2018 10:40:30.122  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-41-2018 10:41:00.001  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-41-2018 10:41:00.001  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-41-2018 10:41:00.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-41-2018 10:41:00.002  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-41-2018 10:41:00.002  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-41-2018 10:41:00.045  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-41-2018 10:41:00.045  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-41-2018 10:41:00.046  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-41-2018 10:41:00.046  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-41-2018 10:41:00.046  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-41-2018 10:41:00.083  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-41-2018 10:41:00.083  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-41-2018 10:41:00.084 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-41-2018 10:41:00.084  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-41-2018 10:41:00.084 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-41-2018 10:41:00.085 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:41:00.045(Timestamp), true(Boolean), RIE(String)
+01-41-2018 10:41:00.086 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-41-2018 10:41:00.087 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-41-2018 10:41:00.087 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:41:00.083(Timestamp), false(Boolean), RFE(String)
+01-41-2018 10:41:00.088 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-41-2018 10:41:00.088 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-41-2018 10:41:00.089  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-41-2018 10:41:30.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-41-2018 10:41:30.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-41-2018 10:41:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-41-2018 10:41:30.005  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-41-2018 10:41:30.005  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-41-2018 10:41:30.068  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-41-2018 10:41:30.068  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-41-2018 10:41:30.069  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-41-2018 10:41:30.069  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-41-2018 10:41:30.069  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-41-2018 10:41:30.105  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-41-2018 10:41:30.106  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-41-2018 10:41:30.107 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-41-2018 10:41:30.107  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-41-2018 10:41:30.107 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-41-2018 10:41:30.108 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:41:30.068(Timestamp), true(Boolean), RIE(String)
+01-41-2018 10:41:30.109 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-41-2018 10:41:30.109 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-41-2018 10:41:30.110 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:41:30.106(Timestamp), false(Boolean), RFE(String)
+01-41-2018 10:41:30.110 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-41-2018 10:41:30.111 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-41-2018 10:41:30.111  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-42-2018 10:42:00.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-42-2018 10:42:00.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-42-2018 10:42:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-42-2018 10:42:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-42-2018 10:42:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-42-2018 10:42:00.048  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-42-2018 10:42:00.048  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-42-2018 10:42:00.049  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-42-2018 10:42:00.049  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-42-2018 10:42:00.049  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-42-2018 10:42:00.087  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-42-2018 10:42:00.087  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-42-2018 10:42:00.088 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-42-2018 10:42:00.089  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-42-2018 10:42:00.089 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-42-2018 10:42:00.090 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:42:00.048(Timestamp), true(Boolean), RIE(String)
+01-42-2018 10:42:00.091 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-42-2018 10:42:00.091 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-42-2018 10:42:00.091 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:42:00.087(Timestamp), false(Boolean), RFE(String)
+01-42-2018 10:42:00.092 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-42-2018 10:42:00.092 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-42-2018 10:42:00.093  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-42-2018 10:42:30.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-42-2018 10:42:30.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-42-2018 10:42:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-42-2018 10:42:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-42-2018 10:42:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-42-2018 10:42:30.081  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-42-2018 10:42:30.081  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-42-2018 10:42:30.083  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-42-2018 10:42:30.083  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-42-2018 10:42:30.083  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-42-2018 10:42:30.148  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-42-2018 10:42:30.149  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-42-2018 10:42:30.150 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-42-2018 10:42:30.151  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-42-2018 10:42:30.151 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-42-2018 10:42:30.152 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:42:30.081(Timestamp), true(Boolean), RIE(String)
+01-42-2018 10:42:30.153 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-42-2018 10:42:30.153 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-42-2018 10:42:30.154 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:42:30.149(Timestamp), false(Boolean), RFE(String)
+01-42-2018 10:42:30.154 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-42-2018 10:42:30.154 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-42-2018 10:42:30.156  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-43-2018 10:43:00.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-43-2018 10:43:00.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-43-2018 10:43:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-43-2018 10:43:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-43-2018 10:43:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-43-2018 10:43:00.068  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-43-2018 10:43:00.069  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-43-2018 10:43:00.070  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-43-2018 10:43:00.070  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-43-2018 10:43:00.070  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-43-2018 10:43:00.108  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-43-2018 10:43:00.108  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-43-2018 10:43:00.110 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-43-2018 10:43:00.110  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-43-2018 10:43:00.110 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-43-2018 10:43:00.111 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:43:00.069(Timestamp), true(Boolean), RIE(String)
+01-43-2018 10:43:00.112 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-43-2018 10:43:00.112 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-43-2018 10:43:00.113 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:43:00.108(Timestamp), false(Boolean), RFE(String)
+01-43-2018 10:43:00.114 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-43-2018 10:43:00.114 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-43-2018 10:43:00.115  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-43-2018 10:43:30.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-43-2018 10:43:30.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-43-2018 10:43:30.003  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-43-2018 10:43:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-43-2018 10:43:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-43-2018 10:43:30.057  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-43-2018 10:43:30.057  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-43-2018 10:43:30.058  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-43-2018 10:43:30.058  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-43-2018 10:43:30.058  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-43-2018 10:43:30.095  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-43-2018 10:43:30.096  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-43-2018 10:43:30.097 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-43-2018 10:43:30.097  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-43-2018 10:43:30.097 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-43-2018 10:43:30.098 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:43:30.057(Timestamp), true(Boolean), RIE(String)
+01-43-2018 10:43:30.099 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-43-2018 10:43:30.099 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-43-2018 10:43:30.100 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:43:30.096(Timestamp), false(Boolean), RFE(String)
+01-43-2018 10:43:30.101 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-43-2018 10:43:30.101 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-43-2018 10:43:30.102  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-44-2018 10:44:00.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-44-2018 10:44:00.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-44-2018 10:44:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-44-2018 10:44:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-44-2018 10:44:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-44-2018 10:44:00.069  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-44-2018 10:44:00.069  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-44-2018 10:44:00.071  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-44-2018 10:44:00.071  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-44-2018 10:44:00.071  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-44-2018 10:44:00.107  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-44-2018 10:44:00.107  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-44-2018 10:44:00.111 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-44-2018 10:44:00.111  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-44-2018 10:44:00.112 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-44-2018 10:44:00.112 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:44:00.069(Timestamp), true(Boolean), RIE(String)
+01-44-2018 10:44:00.113 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-44-2018 10:44:00.114 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-44-2018 10:44:00.114 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:44:00.107(Timestamp), false(Boolean), RFE(String)
+01-44-2018 10:44:00.115 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-44-2018 10:44:00.115 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-44-2018 10:44:00.116  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-44-2018 10:44:30.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-44-2018 10:44:30.003  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-44-2018 10:44:30.005  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-44-2018 10:44:30.005  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-44-2018 10:44:30.005  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-44-2018 10:44:30.084  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-44-2018 10:44:30.085  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-44-2018 10:44:30.086  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-44-2018 10:44:30.086  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-44-2018 10:44:30.086  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-44-2018 10:44:30.123  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-44-2018 10:44:30.123  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-44-2018 10:44:30.125 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-44-2018 10:44:30.125  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-44-2018 10:44:30.125 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-44-2018 10:44:30.126 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:44:30.085(Timestamp), true(Boolean), RIE(String)
+01-44-2018 10:44:30.127 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-44-2018 10:44:30.127 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-44-2018 10:44:30.127 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:44:30.123(Timestamp), false(Boolean), RFE(String)
+01-44-2018 10:44:30.128 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-44-2018 10:44:30.128 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-44-2018 10:44:30.129  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-45-2018 10:45:00.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-45-2018 10:45:00.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-45-2018 10:45:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-45-2018 10:45:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-45-2018 10:45:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-45-2018 10:45:00.067  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-45-2018 10:45:00.067  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-45-2018 10:45:00.068  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-45-2018 10:45:00.068  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-45-2018 10:45:00.068  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-45-2018 10:45:00.104  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-45-2018 10:45:00.104  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-45-2018 10:45:00.106 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-45-2018 10:45:00.106  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-45-2018 10:45:00.106 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-45-2018 10:45:00.107 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:45:00.067(Timestamp), true(Boolean), RIE(String)
+01-45-2018 10:45:00.108 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-45-2018 10:45:00.108 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-45-2018 10:45:00.109 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:45:00.104(Timestamp), false(Boolean), RFE(String)
+01-45-2018 10:45:00.110 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-45-2018 10:45:00.110 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-45-2018 10:45:00.111  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-45-2018 10:45:30.003  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-45-2018 10:45:30.003  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-45-2018 10:45:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-45-2018 10:45:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-45-2018 10:45:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-45-2018 10:45:30.071  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-45-2018 10:45:30.071  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-45-2018 10:45:30.072  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-45-2018 10:45:30.072  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-45-2018 10:45:30.072  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-45-2018 10:45:30.109  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-45-2018 10:45:30.110  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-45-2018 10:45:30.111 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-45-2018 10:45:30.111  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-45-2018 10:45:30.111 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-45-2018 10:45:30.112 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:45:30.071(Timestamp), true(Boolean), RIE(String)
+01-45-2018 10:45:30.113 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-45-2018 10:45:30.113 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-45-2018 10:45:30.113 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:45:30.11(Timestamp), false(Boolean), RFE(String)
+01-45-2018 10:45:30.114 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-45-2018 10:45:30.114 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-45-2018 10:45:30.123  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-46-2018 10:46:00.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-46-2018 10:46:00.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-46-2018 10:46:00.003  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-46-2018 10:46:00.003  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-46-2018 10:46:00.003  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-46-2018 10:46:00.045  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-46-2018 10:46:00.045  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-46-2018 10:46:00.046  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-46-2018 10:46:00.046  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-46-2018 10:46:00.046  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-46-2018 10:46:00.083  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-46-2018 10:46:00.083  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-46-2018 10:46:00.084 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-46-2018 10:46:00.085  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-46-2018 10:46:00.085 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-46-2018 10:46:00.085 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:46:00.045(Timestamp), true(Boolean), RIE(String)
+01-46-2018 10:46:00.086 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-46-2018 10:46:00.087 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-46-2018 10:46:00.087 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:46:00.083(Timestamp), false(Boolean), RFE(String)
+01-46-2018 10:46:00.088 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-46-2018 10:46:00.088 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-46-2018 10:46:00.089  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-46-2018 10:46:30.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-46-2018 10:46:30.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-46-2018 10:46:30.003  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-46-2018 10:46:30.003  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-46-2018 10:46:30.003  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-46-2018 10:46:30.128  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-46-2018 10:46:30.129  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-46-2018 10:46:30.129  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-46-2018 10:46:30.130  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-46-2018 10:46:30.130  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-46-2018 10:46:30.165  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-46-2018 10:46:30.166  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-46-2018 10:46:30.167 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-46-2018 10:46:30.167  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-46-2018 10:46:30.167 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-46-2018 10:46:30.168 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:46:30.128(Timestamp), true(Boolean), RIE(String)
+01-46-2018 10:46:30.169 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-46-2018 10:46:30.169 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-46-2018 10:46:30.170 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:46:30.166(Timestamp), false(Boolean), RFE(String)
+01-46-2018 10:46:30.170 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-46-2018 10:46:30.170 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-46-2018 10:46:30.171  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-47-2018 10:47:00.003  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-47-2018 10:47:00.003  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-47-2018 10:47:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-47-2018 10:47:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-47-2018 10:47:00.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-47-2018 10:47:00.075  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-47-2018 10:47:00.075  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-47-2018 10:47:00.076  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-47-2018 10:47:00.076  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-47-2018 10:47:00.076  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-47-2018 10:47:00.125  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-47-2018 10:47:00.125  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-47-2018 10:47:00.126 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-47-2018 10:47:00.126  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-47-2018 10:47:00.127 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-47-2018 10:47:00.127 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:47:00.075(Timestamp), true(Boolean), RIE(String)
+01-47-2018 10:47:00.128 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-47-2018 10:47:00.128 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-47-2018 10:47:00.129 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:47:00.125(Timestamp), false(Boolean), RFE(String)
+01-47-2018 10:47:00.130 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-47-2018 10:47:00.130 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-47-2018 10:47:00.130  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-47-2018 10:47:30.003  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-47-2018 10:47:30.003  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-47-2018 10:47:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-47-2018 10:47:30.005  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-47-2018 10:47:30.005  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-47-2018 10:47:30.058  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-47-2018 10:47:30.058  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-47-2018 10:47:30.059  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-47-2018 10:47:30.059  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-47-2018 10:47:30.059  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-47-2018 10:47:30.096  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-47-2018 10:47:30.096  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-47-2018 10:47:30.152 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-47-2018 10:47:30.152  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-47-2018 10:47:30.153 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-47-2018 10:47:30.154 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:47:30.058(Timestamp), true(Boolean), RIE(String)
+01-47-2018 10:47:30.221 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-47-2018 10:47:30.221 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-47-2018 10:47:30.222 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:47:30.096(Timestamp), false(Boolean), RFE(String)
+01-47-2018 10:47:30.223 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-47-2018 10:47:30.223 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-47-2018 10:47:30.224  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-48-2018 10:48:00.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-48-2018 10:48:00.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-48-2018 10:48:00.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-48-2018 10:48:00.003  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-48-2018 10:48:00.003  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-48-2018 10:48:00.047  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-48-2018 10:48:00.047  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-48-2018 10:48:00.047  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-48-2018 10:48:00.047  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-48-2018 10:48:00.047  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-48-2018 10:48:00.084  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-48-2018 10:48:00.084  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-48-2018 10:48:00.086 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-48-2018 10:48:00.086  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-48-2018 10:48:00.086 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-48-2018 10:48:00.087 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:48:00.047(Timestamp), true(Boolean), RIE(String)
+01-48-2018 10:48:00.088 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-48-2018 10:48:00.088 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-48-2018 10:48:00.088 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:48:00.085(Timestamp), false(Boolean), RFE(String)
+01-48-2018 10:48:00.089 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-48-2018 10:48:00.089 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-48-2018 10:48:00.090  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-48-2018 10:48:30.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-48-2018 10:48:30.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-48-2018 10:48:30.003  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-48-2018 10:48:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-48-2018 10:48:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-48-2018 10:48:30.057  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-48-2018 10:48:30.057  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-48-2018 10:48:30.058  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-48-2018 10:48:30.058  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-48-2018 10:48:30.058  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-48-2018 10:48:30.094  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-48-2018 10:48:30.094  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-48-2018 10:48:30.097 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-48-2018 10:48:30.097  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-48-2018 10:48:30.098 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-48-2018 10:48:30.099 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:48:30.057(Timestamp), true(Boolean), RIE(String)
+01-48-2018 10:48:30.100 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-48-2018 10:48:30.100 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-48-2018 10:48:30.101 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:48:30.095(Timestamp), false(Boolean), RFE(String)
+01-48-2018 10:48:30.102 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-48-2018 10:48:30.102 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-48-2018 10:48:30.103  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-49-2018 10:49:00.001  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-49-2018 10:49:00.001  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-49-2018 10:49:00.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-49-2018 10:49:00.002  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-49-2018 10:49:00.003  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-49-2018 10:49:00.073  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-49-2018 10:49:00.073  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-49-2018 10:49:00.074  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-49-2018 10:49:00.074  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-49-2018 10:49:00.074  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-49-2018 10:49:00.112  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-49-2018 10:49:00.112  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-49-2018 10:49:00.113 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-49-2018 10:49:00.113  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-49-2018 10:49:00.113 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-49-2018 10:49:00.114 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:49:00.073(Timestamp), true(Boolean), RIE(String)
+01-49-2018 10:49:00.115 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-49-2018 10:49:00.115 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-49-2018 10:49:00.116 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:49:00.112(Timestamp), false(Boolean), RFE(String)
+01-49-2018 10:49:00.116 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-49-2018 10:49:00.117 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-49-2018 10:49:00.118  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-49-2018 10:49:30.001  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-49-2018 10:49:30.001  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-49-2018 10:49:30.003  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-49-2018 10:49:30.003  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-49-2018 10:49:30.003  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-49-2018 10:49:30.058  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-49-2018 10:49:30.058  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-49-2018 10:49:30.059  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-49-2018 10:49:30.059  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-49-2018 10:49:30.059  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-49-2018 10:49:30.096  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-49-2018 10:49:30.096  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-49-2018 10:49:30.098 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-49-2018 10:49:30.098  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-49-2018 10:49:30.099 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-49-2018 10:49:30.099 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:49:30.058(Timestamp), true(Boolean), RIE(String)
+01-49-2018 10:49:30.100 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-49-2018 10:49:30.100 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-49-2018 10:49:30.101 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:49:30.096(Timestamp), false(Boolean), RFE(String)
+01-49-2018 10:49:30.101 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-49-2018 10:49:30.101 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-49-2018 10:49:30.102  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-50-2018 10:50:00.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-50-2018 10:50:00.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-50-2018 10:50:00.003  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-50-2018 10:50:00.003  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-50-2018 10:50:00.003  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-50-2018 10:50:00.045  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-50-2018 10:50:00.045  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-50-2018 10:50:00.045  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-50-2018 10:50:00.046  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-50-2018 10:50:00.046  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-50-2018 10:50:00.082  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-50-2018 10:50:00.083  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-50-2018 10:50:00.084 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-50-2018 10:50:00.084  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-50-2018 10:50:00.085 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-50-2018 10:50:00.085 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:50:00.045(Timestamp), true(Boolean), RIE(String)
+01-50-2018 10:50:00.086 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-50-2018 10:50:00.086 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-50-2018 10:50:00.086 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:50:00.083(Timestamp), false(Boolean), RFE(String)
+01-50-2018 10:50:00.087 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-50-2018 10:50:00.087 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-50-2018 10:50:00.088  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-50-2018 10:50:30.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-50-2018 10:50:30.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-50-2018 10:50:30.003  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-50-2018 10:50:30.003  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-50-2018 10:50:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-50-2018 10:50:30.055  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-50-2018 10:50:30.055  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-50-2018 10:50:30.056  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-50-2018 10:50:30.056  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-50-2018 10:50:30.056  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-50-2018 10:50:30.093  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-50-2018 10:50:30.093  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-50-2018 10:50:30.094 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-50-2018 10:50:30.094  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-50-2018 10:50:30.095 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-50-2018 10:50:30.095 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:50:30.055(Timestamp), true(Boolean), RIE(String)
+01-50-2018 10:50:30.096 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-50-2018 10:50:30.096 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-50-2018 10:50:30.097 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:50:30.093(Timestamp), false(Boolean), RFE(String)
+01-50-2018 10:50:30.097 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-50-2018 10:50:30.098 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-50-2018 10:50:30.099  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-51-2018 10:51:00.001  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-51-2018 10:51:00.001  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-51-2018 10:51:00.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-51-2018 10:51:00.002  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-51-2018 10:51:00.003  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-51-2018 10:51:00.060  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-51-2018 10:51:00.060  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-51-2018 10:51:00.061  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-51-2018 10:51:00.061  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-51-2018 10:51:00.061  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-51-2018 10:51:00.115  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-51-2018 10:51:00.116  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-51-2018 10:51:00.117 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-51-2018 10:51:00.117  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-51-2018 10:51:00.117 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-51-2018 10:51:00.118 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:51:00.06(Timestamp), true(Boolean), RIE(String)
+01-51-2018 10:51:00.118 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-51-2018 10:51:00.119 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-51-2018 10:51:00.119 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:51:00.116(Timestamp), false(Boolean), RFE(String)
+01-51-2018 10:51:00.120 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-51-2018 10:51:00.120 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-51-2018 10:51:00.121  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-51-2018 10:51:30.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-51-2018 10:51:30.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-51-2018 10:51:30.003  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-51-2018 10:51:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-51-2018 10:51:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-51-2018 10:51:30.059  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-51-2018 10:51:30.059  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-51-2018 10:51:30.060  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-51-2018 10:51:30.060  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-51-2018 10:51:30.060  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-51-2018 10:51:30.098  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-51-2018 10:51:30.098  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-51-2018 10:51:30.100 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-51-2018 10:51:30.100  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-51-2018 10:51:30.100 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-51-2018 10:51:30.100 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:51:30.059(Timestamp), true(Boolean), RIE(String)
+01-51-2018 10:51:30.101 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-51-2018 10:51:30.101 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-51-2018 10:51:30.102 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:51:30.098(Timestamp), false(Boolean), RFE(String)
+01-51-2018 10:51:30.103 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-51-2018 10:51:30.103 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-51-2018 10:51:30.104  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-52-2018 10:52:00.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-52-2018 10:52:00.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-52-2018 10:52:00.003  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-52-2018 10:52:00.003  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-52-2018 10:52:00.003  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-52-2018 10:52:00.058  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-52-2018 10:52:00.058  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-52-2018 10:52:00.058  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-52-2018 10:52:00.059  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-52-2018 10:52:00.059  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-52-2018 10:52:00.096  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-52-2018 10:52:00.096  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-52-2018 10:52:00.098 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-52-2018 10:52:00.098  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-52-2018 10:52:00.098 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-52-2018 10:52:00.099 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:52:00.058(Timestamp), true(Boolean), RIE(String)
+01-52-2018 10:52:00.100 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-52-2018 10:52:00.100 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-52-2018 10:52:00.100 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:52:00.096(Timestamp), false(Boolean), RFE(String)
+01-52-2018 10:52:00.101 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-52-2018 10:52:00.101 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-52-2018 10:52:00.102  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-52-2018 10:52:30.002  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-52-2018 10:52:30.002  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }
+01-52-2018 10:52:30.003  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {45676 } found with path { D:/gcaa/softwares/nginx-1.15.2/nginx-1.15.2/logs/nginx.pid }}
+01-52-2018 10:52:30.003  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-52-2018 10:52:30.004  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {45676 } found } 
+01-52-2018 10:52:30.066  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { true} }
+01-52-2018 10:52:30.066  INFO 36260 --- [pool-1-thread-1] com.gcaa.metrics.domain.util.FileUtils   :  Opening file with path { D:/Squid/var/run/squid.pid }
+01-52-2018 10:52:30.067  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         :  { Process id {34600 } found with path { D:/Squid/var/run/squid.pid }}
+01-52-2018 10:52:30.067  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Started }
+01-52-2018 10:52:30.067  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } found } 
+01-52-2018 10:52:30.105  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Process id {34600 } is not running }
+01-52-2018 10:52:30.105  INFO 36260 --- [pool-1-thread-1] c.g.s.metrics.collector.StatusCollector  : { Status Metrics Collector Finished. Status : { false} }
+01-52-2018 10:52:30.106 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Getting transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-52-2018 10:52:30.107  INFO 36260 --- [pool-1-thread-1] c.g.s.m.r.MyBatisStatusRepository        : This will insert into database with batch size of list sent as parameter
+01-52-2018 10:52:30.107 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-52-2018 10:52:30.107 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 4(Integer), 2018-10-01 10:52:30.066(Timestamp), true(Boolean), RIE(String)
+01-52-2018 10:52:30.108 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-52-2018 10:52:30.108 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==>  Preparing: insert into STATUS ( HOST_ID, TYPE_ID, CATEGORY_ID, DATE_TIME, VALUE, INFO ) values ( ?, ?, ?, ?, ?, ? ) 
+01-52-2018 10:52:30.109 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : ==> Parameters: 1(Integer), 2(Integer), 5(Integer), 2018-10-01 10:52:30.105(Timestamp), false(Boolean), RFE(String)
+01-52-2018 10:52:30.109 DEBUG 36260 --- [pool-1-thread-1] c.g.s.metrics.mapper.StatusMapper.save   : <==    Updates: 1
+01-52-2018 10:52:30.109 TRACE 36260 --- [pool-1-thread-1] o.s.t.i.TransactionInterceptor           : Completing transaction for [com.gcaa.status.metrics.service.ApplicationService.saveStatusInBatch]
+01-52-2018 10:52:30.110  INFO 36260 --- [pool-1-thread-1] c.g.s.m.c.job.StatusCollectorJob         : { Status collection job started }
+01-52-2018 10:52:46.359  INFO 36260 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+01-52-2018 10:52:46.359  INFO 36260 --- [RMI TCP Connection(2)-127.0.0.1] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1534f01b: startup date [Mon Oct 01 10:36:46 GMT+04:00 2018]; root of context hierarchy
+01-52-2018 10:52:46.362  INFO 36260 --- [RMI TCP Connection(2)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+01-52-2018 10:52:46.363  INFO 36260 --- [RMI TCP Connection(2)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+01-52-2018 10:52:46.364  INFO 36260 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+01-52-2018 10:52:46.372  INFO 36260 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

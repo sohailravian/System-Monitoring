@@ -1,0 +1,36 @@
+package com.gcaa.metrics.domain.model;
+
+public enum Measurement {
+	
+	CONNECTIONS(1,"MSM001"),
+	UPSTREAM_SERVERS(2,"MSM002"),
+	QUEUES(3,"MSM003"),
+	CONSUMERS(4,"MSM004"),
+	MESSAGES(5,"MSM005"),
+	DEFFERED_MESSAGES(6,"MSM006"),
+	PENDING_MESSAGES(7,"MSM007"),
+	PENDING_EMAILS(8,"MSM008");
+	
+	private Measurement(int id,String code) {
+		this.id=id;
+		this.code=code;
+	}
+	
+	private String code;
+	private int id;
+	
+	
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+}
