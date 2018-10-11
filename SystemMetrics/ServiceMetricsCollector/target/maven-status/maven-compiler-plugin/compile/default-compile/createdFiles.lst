@@ -6,7 +6,6 @@ com\gcaa\service\metrics\repository\MyBatisMetricsRepository.class
 com\gcaa\service\metrics\config\QueueCollectorProperties.class
 META-INF\spring-configuration-metadata.json
 com\gcaa\service\metrics\model\broker\Queue.class
-com\gcaa\service\metrics\collector\job\BrokerCollectorJob$1.class
 com\gcaa\service\metrics\collector\QueueCollector.class
 com\gcaa\service\metrics\mapper\MetricsMapper.class
 com\gcaa\service\metrics\repository\MyBatisHostRepository.class

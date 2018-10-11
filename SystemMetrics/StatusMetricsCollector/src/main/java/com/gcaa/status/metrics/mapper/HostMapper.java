@@ -5,7 +5,5 @@ import com.gcaa.metrics.domain.model.Host;
 
 @Mapper
 public interface HostMapper {
-	
 	Host getHostByName(String hostName);
-	
 }

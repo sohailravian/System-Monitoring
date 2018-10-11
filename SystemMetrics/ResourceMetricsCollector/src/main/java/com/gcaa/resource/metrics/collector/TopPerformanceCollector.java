@@ -11,20 +11,20 @@ import oshi.SystemInfo;
 import oshi.software.os.OSProcess;
 import oshi.software.os.OperatingSystem.ProcessSort;
 import static com.gcaa.metrics.domain.util.NumberUtils.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.options;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import javax.annotation.PostConstruct;
 
 @Component
 public class TopPerformanceCollector implements Collector {
@@ -44,6 +44,7 @@ public class TopPerformanceCollector implements Collector {
 	private final String PROCESS_COLUMN = "pid,user:40,%cpu";
 	private final String PROCESS_SORT = "--sort=-%cpu";	
 	
+	
 	public static transient long schdulerTime;
 	public static long previousTime;
 	
@@ -54,11 +55,6 @@ public class TopPerformanceCollector implements Collector {
 	public TopPerformanceCollector(SystemInfo systemInfo) {
 		this.systemInfo = systemInfo;
 		this.operatingSystemMXBean = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();;
-	}
-	
-	@PostConstruct
-	public void afterInit() throws ParseException{
-		schdulerTime = cronSeconds * 1000;
 	}
 	
 	@Override
@@ -93,7 +89,8 @@ public class TopPerformanceCollector implements Collector {
 		double totalCpu = cpuConsumption(operatingSystemMXBean,systemInfo);
 		OSProcess[] osProcesses = systemInfo.getOperatingSystem().getProcesses(count, ProcessSort.CPU);
 		Arrays.stream(osProcesses).forEach(osProcess -> {
-			Resource resource = new CPU(doubleFormatter(osProcess.calculateCpuPercent()), doubleFormatter(totalCpu));
+			CPU resource = new CPU(doubleFormatter(osProcess.calculateCpuPercent()), doubleFormatter(totalCpu));
+			resource.setName(osProcess.getName());
 			resources.add(resource);
 		});
 		LOGGER.info("{ Performance/CPU Metrics Collector Finished For Top { "+count +" } Processes} of Windows");
@@ -116,7 +113,6 @@ public class TopPerformanceCollector implements Collector {
 			inputStreamReader = new InputStreamReader(process.getInputStream());
 			reader = new BufferedReader(inputStreamReader);
 			
-		//	BufferedReader erroRreader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
 			String line;
 			int lineNumber = 0;
 			while ((line = reader.readLine()) !=null && lineNumber <= count) {
@@ -127,12 +123,18 @@ public class TopPerformanceCollector implements Collector {
 				
 	    	 	line = line.trim().replaceAll("\\s{2,}"," ");
 	    	    String[] splitLine =  Pattern.compile("\\s+").split(line);
-	    	    CPU cpu = new CPU(doubleFormatter(Double.valueOf(splitLine[2])), doubleFormatter(totalCpu));
-	    	    cpu.setName(splitLine[1] + " | " + splitLine[0]);
-	    	   
-	    	    System.out.println(cpu);
-	    	    resources.add(cpu);
 	    	    
+	    	    int processId = Integer.parseInt(splitLine[0]);
+	    	    OSProcess osProcess = systemInfo.getOperatingSystem().getProcess(Integer.parseInt(splitLine[0]));
+	    	    
+	    	    String name = splitLine[1];
+	    	    if(null != osProcess)
+	    	    	name = javaProcessName(osProcess);
+	    	    
+	    	    CPU cpu = new CPU(doubleFormatter(Double.valueOf(splitLine[2])), doubleFormatter(totalCpu));
+	    	    cpu.setName(name + " | " + processId);
+	    	   
+	    	    resources.add(cpu);
 	    	    lineNumber++;
 	    	    
 	       }
@@ -142,12 +144,33 @@ public class TopPerformanceCollector implements Collector {
 			LOGGER.error("Something wrong happened while collecting cpu metrics with unix command",e);
 		}finally {
 			process.destroy();
+			try {
+				if(null != inputStreamReader)
+					inputStreamReader.close();
+				if(null != reader)
+					reader.close();
+			}catch (Exception e) {
+				LOGGER.error("Something wrong happened while trying to close the streams",e);
+			}
 		}
 		
 	
 		return resources;
 	}
 	
+
+	
+	
+	public static void main(String[] args) {
+		String name = "java -jar -Dspring.config.location=/sohail/System_Monitoring_Project/Status_Metrics/application.properties /sohail/System_Monitoring_Project/Status_Metrics/StatusMetricsCollector.jar";
+		Pattern pattern=Pattern.compile("[a-zA-Z0-9-_]+.jar");
+		Matcher matcher = pattern.matcher(name);
+		
+		if(matcher.find()) {
+			System.out.println(matcher.group(0));
+		}
+		
+	}
 	
 }
 

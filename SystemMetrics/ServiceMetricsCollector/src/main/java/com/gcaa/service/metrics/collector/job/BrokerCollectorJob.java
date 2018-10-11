@@ -62,19 +62,4 @@ public class BrokerCollectorJob extends CollectorJob {
 		return metricsList;
 	}
 	
-	private int measureByMeasurement(String measure, Broker broker) {
-		int value = 0;
-		switch (Measurement.measurementByCode(measure)) {
-		case NO_OF_QUEUES:
-			value = broker.getValue().getQueuesCount();
-			break;
-		case NO_OF_TOPICS:
-			value = broker.getValue().getTopicCount();
-			break;	
-		default:
-			value = broker.getValue().getTotalConsumerCount();
-		}
-		return value;
-	}
-	
 }

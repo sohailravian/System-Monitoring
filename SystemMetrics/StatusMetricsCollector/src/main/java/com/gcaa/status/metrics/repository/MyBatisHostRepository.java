@@ -3,11 +3,12 @@ package com.gcaa.status.metrics.repository;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
 import com.gcaa.metrics.domain.model.Host;
 import com.gcaa.status.metrics.mapper.HostMapper;
 
 @Repository
-public class MyBatisHostRepository implements HostRepository {
+public class MyBatisHostRepository implements HostRepository{
 
 	@Autowired
 	private HostMapper hostMapper;

@@ -18,7 +18,7 @@ import com.gcaa.status.metrics.config.StatusCollectorProperties;
 import com.gcaa.status.metrics.service.ApplicationService;
 
 @Component
-public class StatusCollectorJob extends CollectorJob {
+public class StatusCollectorJob extends CollectorJob{
 	
 	private ApplicationService applicationService;
 	private StatusCollectorProperties statusProperties;
@@ -28,7 +28,6 @@ public class StatusCollectorJob extends CollectorJob {
 	
 	@Autowired
 	public StatusCollectorJob(ApplicationService applicationService, StatusCollectorProperties statusCollectorProperties, StatusCollector statusCollector) {
-		
 		this.applicationService = applicationService;
 		this.statusProperties	= statusCollectorProperties; 
 		this.statusCollector	= statusCollector;
@@ -51,7 +50,7 @@ public class StatusCollectorJob extends CollectorJob {
 					Optional<Integer> processId = FileUtils.getProcessIdByFilePath(process.getFilePath());
 					if(processId.isPresent()) {
 						LOGGER.info(" { Process id {" + processId.get() +" } found with path { " + process.getFilePath() + " }}");
-						boolean status= statusCollector.collectByProcessId(processId);
+						boolean status= statusCollector.collectByProcessId(processId.get());
 						processStatus = status ;
 						
 					}

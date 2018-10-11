@@ -16,8 +16,8 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.gcaa.metrics.domain</groupId>
-			<artifactId>MetricsDomain</artifactId>
+			<groupId>com.gcaa.metrics.common</groupId>
+			<artifactId>MetricsCommon</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 

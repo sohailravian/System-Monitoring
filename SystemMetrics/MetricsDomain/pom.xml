@@ -17,12 +17,4 @@
 
 	<name>MetricsDomain</name>
 
-	<dependencies>
-		<dependency>
-			<groupId>com.github.oshi</groupId>
-			<artifactId>oshi-core</artifactId>
-			<version>${oshi.version}</version>
-		</dependency>
-	</dependencies>
-
 </project>

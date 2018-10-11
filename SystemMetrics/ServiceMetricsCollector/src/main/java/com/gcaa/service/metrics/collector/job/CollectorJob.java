@@ -11,6 +11,7 @@ import com.gcaa.metrics.domain.model.Measurement;
 import com.gcaa.metrics.domain.model.Metrics;
 import com.gcaa.metrics.domain.model.Type;
 import com.gcaa.service.metrics.config.ActivemqRestApiProperties;
+import com.gcaa.service.metrics.model.broker.Broker;
 import com.gcaa.service.metrics.model.broker.QueueDetail;
 import com.gcaa.service.metrics.repository.HostRepository;
 import com.gcaa.service.metrics.service.ApplicationService;
@@ -75,6 +76,21 @@ public class CollectorJob {
 			default:
 				value = queueDetail.getQueueSize();
 			}
+		return value;
+	}
+	
+	protected int measureByMeasurement(String measure, Broker broker) {
+		int value = 0;
+		switch (Measurement.measurementByCode(measure)) {
+		case NO_OF_QUEUES:
+			value = broker.getValue().getQueuesCount();
+			break;
+		case NO_OF_TOPICS:
+			value = broker.getValue().getTopicCount();
+			break;	
+		default:
+			value = broker.getValue().getTotalConsumerCount();
+		}
 		return value;
 	}
 	protected String readEndpointForBroker(String brokerEndpoint) {

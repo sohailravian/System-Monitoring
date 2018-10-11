@@ -51,7 +51,7 @@ public class QueueCollectorJob extends CollectorJob {
 			Optional<Queue> queue = queueCollector.collectQueue(brokerMetricsUrl);
 			if(queue.isPresent()) {
 				List<Metrics> metricsList = new ArrayList<Metrics>();
-				List<QueueDetail> queueDetails= queueDetail(queue.get());
+				List<QueueDetail> queueDetails= queueDetails(queue.get());
 				for (QueueDetail detail : queueDetails) {
 					metricsList.addAll(metrics(detail));
 				}
@@ -73,7 +73,7 @@ public class QueueCollectorJob extends CollectorJob {
 		return metricsList;
 	}
 	
-	private List<QueueDetail> queueDetail(Queue queue){
+	private List<QueueDetail> queueDetails(Queue queue){
 		List<QueueDetail> queueDetails = new ArrayList<QueueDetail>();
 		queue.getValue().forEach(element ->{
 			try {

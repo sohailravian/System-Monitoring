@@ -84,7 +84,7 @@ public class PerformanceCollectorJob extends CollectorJob {
 						Optional<Resource> cpu= performanceCollector.collectByProcessId(processId.get());
 						if(cpu.isPresent()) {
 							cpu.get().setTotal(doubleFormatter(totalCpuUsed));
-							Utilization utilization = utilization(Type.SYSTEM, Category.CPU, Category.categoryByCode(process.getName()).name(), cpu.get());
+							Utilization utilization = utilization(Type.SYSTEM, Category.CPU,(Category.categoryByCode(process.getName()).name()+ " | " +processId.get()), cpu.get());
 							UtilizationList.add(utilization);
 						}
 					}
