@@ -10,15 +10,15 @@ public class CollectorProperties {
 	
 	public static class Process {
 		
-		private String name;
+		private String category;
 		private String filePath;
 		
-		public String getName() {
-			return name;
+		public String getCategory() {
+			return category;
 		}
 		
-		public void setName(String name) {
-			this.name = name;
+		public void setCategory(String category) {
+			this.category = category;
 		}
 
 		public String getFilePath() {

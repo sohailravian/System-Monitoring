@@ -1,5 +1,7 @@
 package com.gcaa.resource.metrics.collector.job;
 
+import static com.gcaa.metrics.domain.common.util.NumberUtils.*;
+
 import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;
 import java.util.ArrayList;
@@ -12,18 +14,19 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+
+import com.gcaa.metrics.domain.common.util.FileUtils;
 import com.gcaa.metrics.domain.model.CPU;
 import com.gcaa.metrics.domain.model.Category;
 import com.gcaa.metrics.domain.model.GcaaOSProcess;
 import com.gcaa.metrics.domain.model.Resource;
 import com.gcaa.metrics.domain.model.Type;
 import com.gcaa.metrics.domain.model.Utilization;
-import com.gcaa.metrics.domain.util.FileUtils;
 import com.gcaa.resource.metrics.collector.PerformanceCollector;
 import com.gcaa.resource.metrics.collector.TopPerformanceCollector;
 import com.gcaa.resource.metrics.config.PerformanceCollectorProperties;
 import com.gcaa.resource.metrics.service.ApplicationService;
-import static com.gcaa.metrics.domain.util.NumberUtils.*;
+
 import oshi.SystemInfo;
 
 @Component

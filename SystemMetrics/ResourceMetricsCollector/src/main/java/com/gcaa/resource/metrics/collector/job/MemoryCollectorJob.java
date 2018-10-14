@@ -1,5 +1,6 @@
 package com.gcaa.resource.metrics.collector.job;
 
+import static com.gcaa.metrics.domain.common.util.NumberUtils.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,16 +10,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+
+import com.gcaa.metrics.domain.common.util.FileUtils;
 import com.gcaa.metrics.domain.model.Category;
 import com.gcaa.metrics.domain.model.Memory;
 import com.gcaa.metrics.domain.model.Resource;
 import com.gcaa.metrics.domain.model.Type;
 import com.gcaa.metrics.domain.model.Utilization;
-import com.gcaa.metrics.domain.util.FileUtils;
 import com.gcaa.resource.metrics.collector.MemoryCollector;
 import com.gcaa.resource.metrics.config.MemoryCollectorProperties;
 import com.gcaa.resource.metrics.service.ApplicationService;
-import static com.gcaa.metrics.domain.util.NumberUtils.*;
+
 import oshi.SystemInfo;
 import oshi.software.os.OSProcess;
 import oshi.software.os.OperatingSystem.ProcessSort;

@@ -10,6 +10,8 @@
 		DATE_TIME,
 		VALUE,
 		INFO
+		<if test="measurement != null">,MEASUREMENT_ID
+		</if>
 		)
 		values (
 		#{host.id},
@@ -18,7 +20,10 @@
 		#{dateTime},
 		#{value},
 		#{info}
+		<if test="measurement != null">, #{measurement.id}
+		</if>
 		)
+		
 	</insert>
 	
 </mapper>	

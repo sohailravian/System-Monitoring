@@ -10,7 +10,8 @@ import com.gcaa.metrics.domain.model.Resource;
 import com.gcaa.resource.metrics.config.MemoryCollectorProperties;
 import oshi.SystemInfo;
 import oshi.software.os.OSProcess;
-import static com.gcaa.metrics.domain.util.NumberUtils.*;
+
+import static com.gcaa.metrics.domain.common.util.NumberUtils.*;
 
 import java.util.Optional;
 

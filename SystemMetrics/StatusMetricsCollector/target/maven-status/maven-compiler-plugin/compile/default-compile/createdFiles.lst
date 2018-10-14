@@ -10,6 +10,7 @@ com\gcaa\status\metrics\repository\BatchRepositoy.class
 com\gcaa\status\metrics\config\CollectorProperties.class
 com\gcaa\status\metrics\repository\MyBatisStatusRepository.class
 META-INF\spring-configuration-metadata.json
+com\gcaa\status\metrics\config\StatusCollectorProperties$UpstreamServer.class
 com\gcaa\status\metrics\StatusMetricsCollectorApplication.class
 com\gcaa\status\metrics\config\CollectorProperties$Process.class
 com\gcaa\status\metrics\service\ApplicationService.class

@@ -10,7 +10,8 @@ import com.gcaa.metrics.domain.model.Resource;
 import oshi.SystemInfo;
 import oshi.software.os.OSProcess;
 import oshi.software.os.OperatingSystem.ProcessSort;
-import static com.gcaa.metrics.domain.util.NumberUtils.*;
+
+import static com.gcaa.metrics.domain.common.util.NumberUtils.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.options;
 
 import java.io.BufferedReader;

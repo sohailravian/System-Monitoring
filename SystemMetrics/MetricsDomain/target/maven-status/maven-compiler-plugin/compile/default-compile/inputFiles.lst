@@ -12,7 +12,8 @@ D:\gcaa\workspaces\sts workspace\SystemMetrics\MetricsDomain\src\main\java\com\g
 D:\gcaa\workspaces\sts workspace\SystemMetrics\MetricsDomain\src\main\java\com\gcaa\metrics\domain\model\GcaaOSProcess.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\MetricsDomain\src\main\java\com\gcaa\metrics\domain\model\Host.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\MetricsDomain\src\main\java\com\gcaa\metrics\domain\model\State.java
-D:\gcaa\workspaces\sts workspace\SystemMetrics\MetricsDomain\src\main\java\com\gcaa\metrics\domain\util\NumberUtils.java
+D:\gcaa\workspaces\sts workspace\SystemMetrics\MetricsDomain\src\main\java\com\gcaa\metrics\domain\common\util\RegularExpressionUtils.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\MetricsDomain\src\main\java\com\gcaa\metrics\domain\model\Type.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\MetricsDomain\src\main\java\com\gcaa\metrics\domain\MetricsDomainApplication.java
-D:\gcaa\workspaces\sts workspace\SystemMetrics\MetricsDomain\src\main\java\com\gcaa\metrics\domain\util\FileUtils.java
+D:\gcaa\workspaces\sts workspace\SystemMetrics\MetricsDomain\src\main\java\com\gcaa\metrics\domain\common\util\FileUtils.java
+D:\gcaa\workspaces\sts workspace\SystemMetrics\MetricsDomain\src\main\java\com\gcaa\metrics\domain\common\util\NumberUtils.java

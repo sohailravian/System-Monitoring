@@ -11,7 +11,16 @@ public class Status {
 	private Date dateTime;
 	private boolean value;
 	private String info;
+	private Measurement measurement = null;
 	
+	public Measurement getMeasurement() {
+		return measurement;
+	}
+
+	public void setMeasurement(Measurement measurement) {
+		this.measurement = measurement;
+	}
+
 	protected Status(long id, Host host, Type type, Category category, Date dateTime, boolean value) {
 		super();
 		this.id = id;

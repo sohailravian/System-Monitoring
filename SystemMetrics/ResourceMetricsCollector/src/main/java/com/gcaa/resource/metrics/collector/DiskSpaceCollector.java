@@ -8,7 +8,9 @@ import com.gcaa.metrics.domain.model.HardDisk;
 import com.gcaa.metrics.domain.model.Resource;
 import com.gcaa.resource.metrics.config.DiskSpaceCollectorProperties;
 import com.gcaa.resource.metrics.config.DiskSpaceCollectorProperties.MountPoint;
-import static com.gcaa.metrics.domain.util.NumberUtils.*;
+
+import static com.gcaa.metrics.domain.common.util.NumberUtils.*;
+
 import java.nio.file.FileStore;
 import java.nio.file.Files;
 import java.nio.file.Path;

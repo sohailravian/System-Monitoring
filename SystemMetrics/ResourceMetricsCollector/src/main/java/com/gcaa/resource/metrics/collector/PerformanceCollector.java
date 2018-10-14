@@ -11,7 +11,9 @@ import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.software.os.OSProcess;
 import oshi.software.os.OperatingSystem.ProcessSort;
-import static com.gcaa.metrics.domain.util.NumberUtils.*;
+
+import static com.gcaa.metrics.domain.common.util.NumberUtils.*;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.management.ManagementFactory;

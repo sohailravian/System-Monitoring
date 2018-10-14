@@ -11,6 +11,7 @@ public enum Measurement {
 	NO_OF_MESSAGES_ENQUEUED(5,"MSM005"),
 	NO_OF_MESSAGES_DEQUEUED(6,"MSM006"),
 	MEMORY_USAGE_BYTE(7,"MSM007"),
+	UPSTREAM_SERVER(8,"MSM008"),
 	UN_RESOLVED(-20,"MSM-20");
 	
 	private Measurement(int id,String code) {
