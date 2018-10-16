@@ -69,7 +69,8 @@ public class MemoryCollectorJob extends CollectorJob {
 						Optional<Resource> memory= memoryCollector.collectByProcessId(processId.get());
 						if(memory.isPresent()) {
 							memory.get().setTotal(doubleFormatter(totalMemory));
-							Utilization utilization = utilization(Type.SYSTEM, Category.MEMORY, Category.categoryByCode(process.getName()).name() + " | "+ processId.get(), memory.get());
+							Utilization utilization = utilization(Type.SYSTEM, Category.MEMORY, Category.categoryByCode(process.getName()).name() + " | "+ processId.get(),
+									Category.categoryByCode(process.getName()).name(), memory.get());
 							UtilizationList.add(utilization);
 						}
 					}
@@ -88,12 +89,12 @@ public class MemoryCollectorJob extends CollectorJob {
 				double used	= (double)(process.getResidentSetSize()) / (double)memoryProperties.getUnit();
 				double total = totalMemory;
 				Memory memory =  new Memory(doubleFormatter(used), doubleFormatter(total));
-				String name = process.getUser()+ " | " + process.getProcessID();
+				String name = process.getUser();
 				if(!memoryCollector.isWindows(systemInfo)) {
-					name = memoryCollector.javaProcessName(process) + " | "+ process.getProcessID();
+					name = memoryCollector.javaProcessName(process);
 				}
 				
-				Utilization utilization = utilization(Type.SYSTEM, Category.MEMORY, name, memory);
+				Utilization utilization = utilization(Type.SYSTEM, Category.MEMORY, (name + " | "+ process.getProcessID()),name, memory);
 				UtilizationList.add(utilization);
 			});
 			
@@ -103,7 +104,7 @@ public class MemoryCollectorJob extends CollectorJob {
 	
 	public void collectSystemMemory(){
 		Optional<Resource> memory= memoryCollector.collect();
-		Utilization utilization = utilization(Type.SYSTEM, Category.MEMORY, Type.SYSTEM.name(), memory.get());
+		Utilization utilization = utilization(Type.SYSTEM, Category.MEMORY, Type.SYSTEM.name(),Type.SYSTEM.name(), memory.get());
 		applicationService.saveUtilization(utilization);
 	}
 	

@@ -16,7 +16,7 @@ public class RegularExpressionUtils {
 		Pattern pattern=Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(value);
 		 while (matcher.find()) {
-			 matchedResult.add(matcher.group(0));
+			 matchedResult.add(matcher.group(1));
 		}
 		return matchedResult;
 	}

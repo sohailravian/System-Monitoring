@@ -87,7 +87,8 @@ public class PerformanceCollectorJob extends CollectorJob {
 						Optional<Resource> cpu= performanceCollector.collectByProcessId(processId.get());
 						if(cpu.isPresent()) {
 							cpu.get().setTotal(doubleFormatter(totalCpuUsed));
-							Utilization utilization = utilization(Type.SYSTEM, Category.CPU,(Category.categoryByCode(process.getName()).name()+ " | " +processId.get()), cpu.get());
+							Utilization utilization = utilization(Type.SYSTEM, Category.CPU,(Category.categoryByCode(process.getName()).name()+ " | " +processId.get()),
+									Category.categoryByCode(process.getName()).name(), cpu.get());
 							UtilizationList.add(utilization);
 						}
 					}
@@ -103,7 +104,7 @@ public class PerformanceCollectorJob extends CollectorJob {
 		List<Utilization> utilizationList = new ArrayList<Utilization>();
 		List<Resource> resources = topPerformanceCollector.collectionTopProcess(performanceProperties.getProcessCount());
 		resources.forEach(cpu -> {
-			Utilization utilization = utilization(Type.SYSTEM, Category.CPU, ((CPU)cpu).getName() , cpu);
+			Utilization utilization = utilization(Type.SYSTEM, Category.CPU, ((CPU)cpu).getName(), ((CPU)cpu).getName().split("\\|")[0].trim(), cpu);
 			utilizationList.add(utilization);
 		});
 		
@@ -113,9 +114,17 @@ public class PerformanceCollectorJob extends CollectorJob {
 	
 	public void collectSystemPerformance(){
 		Optional<Resource> memory= performanceCollector.collect();
-		Utilization utilization = utilization(Type.SYSTEM, Category.CPU, Type.SYSTEM.name(), memory.get());
+		Utilization utilization = utilization(Type.SYSTEM, Category.CPU, Type.SYSTEM.name(),  Type.SYSTEM.name(), memory.get());
 		applicationService.saveUtilization(utilization);
 		
+	}
+	
+	public static void main(String[] args) {
+		String s= " ResourceMetricsCollector.jar | 8138";
+		System.out.println(s.split("\\|"));
+		for (String ss: s.split("\\|")) {
+			System.out.println(ss);
+		}
 	}
 		
 }

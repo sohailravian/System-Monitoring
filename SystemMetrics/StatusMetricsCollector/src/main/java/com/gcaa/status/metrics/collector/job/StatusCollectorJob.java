@@ -1,35 +1,20 @@
 package com.gcaa.status.metrics.collector.job;
 
 import java.io.File;
-import java.io.FileFilter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Stream;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
 import com.gcaa.metrics.domain.common.util.FileUtils;
 import com.gcaa.metrics.domain.common.util.RegularExpressionUtils;
-import com.gcaa.metrics.domain.model.CPU;
 import com.gcaa.metrics.domain.model.Category;
 import com.gcaa.metrics.domain.model.Measurement;
-import com.gcaa.metrics.domain.model.Resource;
 import com.gcaa.metrics.domain.model.Status;
 import com.gcaa.metrics.domain.model.Type;
 import com.gcaa.status.metrics.collector.StatusCollector;
@@ -42,14 +27,15 @@ public class StatusCollectorJob extends CollectorJob{
 	private ApplicationService applicationService;
 	private StatusCollectorProperties statusProperties;
 	private StatusCollector statusCollector;
-	private CacheFileService fileService;
+	private UpstreamServerService fileService;
 	
-	private final static String UPSTREAM_SERVER_IP_REGEX = "([http| https ://]*\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})[:(\\d{1,5})]*"; 
+	private final static String UPSTREAM_SERVER_IP_REGEX = "\\s*server\\s*(\\S*[\\:{0,1}\\d{1,5}]{0,1});"; 
+	
 	
 	private static Logger LOGGER = LoggerFactory.getLogger(StatusCollectorJob.class);
 	
 	@Autowired
-	public StatusCollectorJob(ApplicationService applicationService, StatusCollectorProperties statusCollectorProperties, StatusCollector statusCollector, CacheFileService fileService) {
+	public StatusCollectorJob(ApplicationService applicationService, StatusCollectorProperties statusCollectorProperties, StatusCollector statusCollector, UpstreamServerService fileService) {
 		this.applicationService = applicationService;
 		this.statusProperties	= statusCollectorProperties; 
 		this.statusCollector	= statusCollector;
@@ -57,9 +43,9 @@ public class StatusCollectorJob extends CollectorJob{
 	}
 	
 	@Scheduled(cron = "${status.frequency-cron}")
-	public void collectScheduledMemoryUtilization() {
+	public void collectScheduledProcessStatus() {
 		LOGGER.info("{ Status collection job started }");
-		//collectStatusForProcesses();
+		collectStatusForProcesses();
 		new Thread(() -> collectStatusForUpstreamServer()).start();
 		LOGGER.info("{ Status collection job started }");
 	}
@@ -79,6 +65,7 @@ public class StatusCollectorJob extends CollectorJob{
 					}
 					Status statusMetrics = new Status(getHost(),Type.SERVICE, Category.categoryByCode(process.getCategory()), new Date(), processStatus);
 					statusMetrics.setInfo(Category.categoryByCode(process.getCategory()).name());
+					statusMetrics.setMeasurement(Measurement.STATUS);
 					statusList.add(statusMetrics);
 				});
 			
@@ -128,6 +115,12 @@ public class StatusCollectorJob extends CollectorJob{
 		upstreamServerIps=RegularExpressionUtils.listOfMatchedRegex(UPSTREAM_SERVER_IP_REGEX, upstreamServers);
 		LOGGER.info("The upstream server found : { " + upstreamServers+" }");
 		return upstreamServerIps;
+	}
+	
+	public static void main(String[] args) {
+		String ss = "upstream test-app { server 127.0.0.1:8080; server localhost:10;}";
+		System.out.println(RegularExpressionUtils.listOfMatchedRegex(UPSTREAM_SERVER_IP_REGEX, ss));
+		
 	}
 	
 }

@@ -9,6 +9,7 @@ public class Utilization {
 	private Type type;
 	private Category category;
 	private String info;
+	private String resource;
 	private Resource memory;
 	private Date dateTime;
 	
@@ -72,6 +73,14 @@ public class Utilization {
 	}
 	public void setMemory(Resource memory) {
 		this.memory = memory;
+	}
+
+	public String getResource() {
+		return resource;
+	}
+
+	public void setResource(String resource) {
+		this.resource = resource;
 	}
 
 }

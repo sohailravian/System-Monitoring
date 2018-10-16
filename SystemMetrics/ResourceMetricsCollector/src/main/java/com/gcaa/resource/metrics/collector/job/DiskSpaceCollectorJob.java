@@ -57,12 +57,12 @@ public class DiskSpaceCollectorJob extends CollectorJob {
 					totalSpace = totalSpace + disk.get().getTotal();
 					totalUsedSpace = totalUsedSpace + disk.get().getUsed();
 					
-					Utilization utilization = utilization(Type.SYSTEM, Category.DISK, ((HardDisk)disk.get()).getName(), disk.get());
+					Utilization utilization = utilization(Type.SYSTEM, Category.DISK, ((HardDisk)disk.get()).getName(), ((HardDisk)disk.get()).getName(), disk.get());
 					UtilizationList.add(utilization);
 				}
 			}
 			
-			Utilization utilization = utilization(Type.SYSTEM, Category.DISK, Category.DISK.name(), new HardDisk(totalUsedSpace, totalSpace, Category.DISK.name()));
+			Utilization utilization = utilization(Type.SYSTEM, Category.DISK, Category.DISK.name(),Category.DISK.name() , new HardDisk(totalUsedSpace, totalSpace, Category.DISK.name()));
 			UtilizationList.add(utilization);
 			applicationService.saveUtilizationInBatch(UtilizationList);
 		}

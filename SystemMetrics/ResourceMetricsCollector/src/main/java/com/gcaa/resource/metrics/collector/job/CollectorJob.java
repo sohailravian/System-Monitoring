@@ -51,9 +51,10 @@ public class CollectorJob {
 		return used;
 	}
 	
-	protected Utilization utilization(Type type, Category category, String infoType ,Resource resource) {
+	protected Utilization utilization(Type type, Category category, String infoType, String info ,Resource resource) {
 		Utilization utilization = new Utilization(getHost(), type, category, resource,new Date());
 		utilization.setInfo(infoType);
+		utilization.setResource(info);
 		return utilization;
 	}
 	

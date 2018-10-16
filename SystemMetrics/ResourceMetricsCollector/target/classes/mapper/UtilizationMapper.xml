@@ -8,6 +8,7 @@
 		TYPE_ID,
 		CATEGORY_ID,
 		INFO,
+		RESOURCE,
 		USED,
 		TOTAL,
 		DATE_TIME)
@@ -16,6 +17,7 @@
 		#{type.id},
 		#{category.id},
 		#{info},
+		#{resource},
 		#{memory.used},
 		#{memory.total},
 		#{dateTime}

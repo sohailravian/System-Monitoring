@@ -12,6 +12,11 @@ public enum Category {
 	BROKER(6,"CAT006"),
 	QUEUE(7,"CAT007"),
 	TOPIC(8,"CAT008"),
+	DATABASE(9,"CAT009"),
+	RIE_WEB(10,"CAT010"),
+	RIE_SOAP(11,"CAT011"),
+	PSI(12,"CAT012"),
+	MAIL_SERVER(13,"CAT013"),
 	UN_RESOLVED(100,"CAT100");
 	
 	private Category(int id,String code) {
