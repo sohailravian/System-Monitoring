@@ -29,7 +29,7 @@ public class StatusCollectorJob extends CollectorJob{
 	private StatusCollector statusCollector;
 	private UpstreamServerService fileService;
 	
-	private final static String UPSTREAM_SERVER_IP_REGEX = "\\s*server\\s*(\\S*[\\:{0,1}\\d{1,5}]{0,1});"; 
+	private final static String UPSTREAM_SERVER_REGEX = "\\s*server\\s*(\\S*[\\:{0,1}\\d{1,5}]{0,1});"; 
 	
 	
 	private static Logger LOGGER = LoggerFactory.getLogger(StatusCollectorJob.class);
@@ -112,14 +112,14 @@ public class StatusCollectorJob extends CollectorJob{
 	}
 	private List<String> upstreamServerIps(String upstreamServers) {
 		List<String> upstreamServerIps = new ArrayList<String>();
-		upstreamServerIps=RegularExpressionUtils.listOfMatchedRegex(UPSTREAM_SERVER_IP_REGEX, upstreamServers);
+		upstreamServerIps=RegularExpressionUtils.listOfMatchedRegex(UPSTREAM_SERVER_REGEX, upstreamServers);
 		LOGGER.info("The upstream server found : { " + upstreamServers+" }");
 		return upstreamServerIps;
 	}
 	
 	public static void main(String[] args) {
 		String ss = "upstream test-app { server 127.0.0.1:8080; server localhost:10;}";
-		System.out.println(RegularExpressionUtils.listOfMatchedRegex(UPSTREAM_SERVER_IP_REGEX, ss));
+		System.out.println(RegularExpressionUtils.listOfMatchedRegex(UPSTREAM_SERVER_REGEX, ss));
 		
 	}
 	

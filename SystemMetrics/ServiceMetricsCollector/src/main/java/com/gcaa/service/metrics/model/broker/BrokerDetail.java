@@ -10,6 +10,7 @@ public class BrokerDetail {
 	private int totalConnectionsCount;
 	private int totalDequeueCount;
 	private List<Destination> queues = new ArrayList<Destination>();
+	private int memoryUsageByteCount;
 	private List<Destination> topics = new ArrayList<Destination>();
 	
 	BrokerDetail(){};
@@ -56,12 +57,18 @@ public class BrokerDetail {
 		this.totalDequeueCount = totalDequeueCount;
 	}
 	
+	public int getMemoryUsageByteCount() {
+		return memoryUsageByteCount;
+	}
+	public void setMemoryUsageByteCount(int memoryUsageByteCount) {
+		this.memoryUsageByteCount = memoryUsageByteCount;
+	}
+	
 	@Override
 	public String toString() {
-		return "BrokerValue [totalConsumerCount=" + totalConsumerCount + ", totalEnqueueCount=" + totalEnqueueCount
+		return "BrokerDetail [totalConsumerCount=" + totalConsumerCount + ", totalEnqueueCount=" + totalEnqueueCount
 				+ ", totalConnectionsCount=" + totalConnectionsCount + ", totalDequeueCount=" + totalDequeueCount
-				+ ", queues=" + queues + ", topics=" + topics + "]";
+				+ ", queues=" + queues + ", memoryUsageByteCount=" + memoryUsageByteCount + ", topics=" + topics + "]";
 	}
-
 	
 }

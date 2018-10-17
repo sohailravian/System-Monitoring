@@ -49,9 +49,6 @@ public class TopPerformanceCollector implements Collector {
 	public static transient long schdulerTime;
 	public static long previousTime;
 	
-	@Value("${cpu.frequency-seconds}")
-	public int cronSeconds;
-	
 	@Autowired
 	public TopPerformanceCollector(SystemInfo systemInfo) {
 		this.systemInfo = systemInfo;

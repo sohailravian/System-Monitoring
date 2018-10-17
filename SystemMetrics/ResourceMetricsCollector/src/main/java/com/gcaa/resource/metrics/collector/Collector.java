@@ -17,8 +17,9 @@ public interface Collector {
 	public Optional<Resource> collect();
 	public Optional<Resource> collectByProcessId(int processId);
 	
-	public final String PROCESS_NAME = "java";
+	public final String PROCESS_NAME 	  = "java";
 	public final String PROCESS_USER_ROOT = "root";
+	public final String JAR_REGEX		  = "[a-zA-Z0-9-_.]+.jar";
 	
 	public default double cpuConsumption(OperatingSystemMXBean operatingSystemMXBean,SystemInfo systemInfo) {
 		double used = 0 ;
@@ -35,8 +36,7 @@ public interface Collector {
 	public default String javaProcessName(OSProcess osProcess) {
 		String processName =  osProcess.getUser(); 
 		if(PROCESS_NAME.equalsIgnoreCase(osProcess.getName()) && PROCESS_USER_ROOT.equalsIgnoreCase(osProcess.getUser())) {
-			String regExp = "[a-zA-Z0-9-_.]+.jar";
-			Pattern pattern=Pattern.compile(regExp);
+			Pattern pattern=Pattern.compile(JAR_REGEX);
 			Matcher matcher = pattern.matcher(osProcess.getCommandLine());
 			if(matcher.find())
 				processName = matcher.group(0);

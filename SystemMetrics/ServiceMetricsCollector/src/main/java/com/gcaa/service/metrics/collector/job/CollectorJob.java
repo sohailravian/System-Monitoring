@@ -88,6 +88,9 @@ public class CollectorJob {
 		case NO_OF_TOPICS:
 			value = broker.getValue().getTopicCount();
 			break;	
+		case NO_OF_MESSAGES:
+			value = broker.getValue().getMemoryUsageByteCount();
+			break;	
 		default:
 			value = broker.getValue().getTotalConsumerCount();
 		}

@@ -46,9 +46,6 @@ public class PerformanceCollector implements Collector {
 	
 	public static transient long scheduleTime;
 
-	@Value("${cpu.frequency-seconds}")
-	public int cronSeconds;
-	
 	@Autowired
 	public PerformanceCollector(SystemInfo systemInfo) {
 		this.systemInfo = systemInfo;
@@ -110,7 +107,7 @@ public class PerformanceCollector implements Collector {
 					childProcessPreviousTime.put(osProcess.getProcessID(), childCurrentTime);
 			}
 			
-			double used = doubleFormatter((processCpu > 100 || processCpu < .09) ? process.calculateCpuPercent() : processCpu);
+			double used = doubleFormatter(processCpu);
 			cpu = Optional.ofNullable(new CPU(doubleFormatter(used) ,doubleFormatter(total)));
 		}
 		return cpu;
