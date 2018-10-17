@@ -11,15 +11,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import com.gcaa.common.service.CommonApplicationService;
 import com.gcaa.metrics.domain.common.util.FileUtils;
 import com.gcaa.metrics.domain.common.util.RegularExpressionUtils;
 import com.gcaa.metrics.domain.model.Category;
-import com.gcaa.metrics.domain.model.Measurement;
 import com.gcaa.metrics.domain.model.Status;
-import com.gcaa.metrics.domain.model.Type;
 import com.gcaa.status.metrics.collector.StatusCollector;
 import com.gcaa.status.metrics.config.StatusCollectorProperties;
 import com.gcaa.status.metrics.service.ApplicationService;
+import com.gcaa.status.metrics.service.UpstreamServerService;
 
 @Component
 public class StatusCollectorJob extends CollectorJob{
@@ -28,18 +28,19 @@ public class StatusCollectorJob extends CollectorJob{
 	private StatusCollectorProperties statusProperties;
 	private StatusCollector statusCollector;
 	private UpstreamServerService fileService;
-	
-	private final static String UPSTREAM_SERVER_REGEX = "\\s*server\\s*(\\S*[\\:{0,1}\\d{1,5}]{0,1});"; 
+	private CommonApplicationService commonApplicationService;
 	
 	
 	private static Logger LOGGER = LoggerFactory.getLogger(StatusCollectorJob.class);
 	
 	@Autowired
-	public StatusCollectorJob(ApplicationService applicationService, StatusCollectorProperties statusCollectorProperties, StatusCollector statusCollector, UpstreamServerService fileService) {
-		this.applicationService = applicationService;
-		this.statusProperties	= statusCollectorProperties; 
-		this.statusCollector	= statusCollector;
-		this.fileService		= fileService;
+	public StatusCollectorJob(ApplicationService applicationService, StatusCollectorProperties statusCollectorProperties, 
+			StatusCollector statusCollector, UpstreamServerService fileService,CommonApplicationService commonApplicationService) {
+		this.applicationService 		= applicationService;
+		this.statusProperties			= statusCollectorProperties; 
+		this.statusCollector			= statusCollector;
+		this.fileService				= fileService;
+		this.commonApplicationService 	= commonApplicationService;
 	}
 	
 	@Scheduled(cron = "${status.frequency-cron}")
@@ -63,9 +64,14 @@ public class StatusCollectorJob extends CollectorJob{
 						processStatus = status ;
 						
 					}
-					Status statusMetrics = new Status(getHost(),Type.SERVICE, Category.categoryByCode(process.getCategory()), new Date(), processStatus);
+					
+					long categoryId = commonApplicationService.getCategoryLookupByCode(process.getCategory()).get().getId();
+					long typeId = commonApplicationService.getTypeLookupByCode(process.getType()).get().getId();
+					long measurementId = commonApplicationService.getMeasurementByCode(process.getMeasurement()).get().getId();
+					
+					Status statusMetrics = new Status(getHost(),typeId, categoryId, new Date(), processStatus);
 					statusMetrics.setInfo(Category.categoryByCode(process.getCategory()).name());
-					statusMetrics.setMeasurement(Measurement.STATUS);
+					statusMetrics.setMeasurement(measurementId);
 					statusList.add(statusMetrics);
 				});
 			
@@ -94,11 +100,15 @@ public class StatusCollectorJob extends CollectorJob{
 				});
 				
 				upstreamServers.forEach(ip -> {
-					ip.trim();
-					boolean status= statusCollector.collectUpstreamServerStatus(ip);
-					Status statusMetrics = new Status(getHost(),Type.SERVICE, Category.categoryByCode(statusProperties.getUpstreamServer().getCategory()), new Date(), status);
+					boolean status= statusCollector.collectUpstreamServerStatus(ip.trim());
+					
+					long categoryId = commonApplicationService.getCategoryLookupByCode(statusProperties.getUpstreamServer().getCategory()).get().getId();
+					long typeId = commonApplicationService.getTypeLookupByCode(statusProperties.getUpstreamServer().getType()).get().getId();
+					long measurementId = commonApplicationService.getMeasurementByCode(statusProperties.getUpstreamServer().getMeasurement()).get().getId();
+					
+					Status statusMetrics = new Status(getHost(),typeId,categoryId, new Date(), status);
 					statusMetrics.setInfo(ip);
-					statusMetrics.setMeasurement(Measurement.UPSTREAM_SERVER);
+					statusMetrics.setMeasurement(measurementId);
 					statusList.add(statusMetrics);
 				});
 				

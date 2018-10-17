@@ -1,12 +1,16 @@
 package com.gcaa.status.metrics.config;
 
 import javax.swing.filechooser.FileSystemView;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-
-
+import org.springframework.context.annotation.ImportResource;
 import oshi.SystemInfo;
 
+@ComponentScan(basePackages = {"com.gcaa.common.*"})
+@ImportResource (locations = {"classpath*:mapper/HostMapper.xml"})
+@MapperScan(basePackages = {"com.gcaa.common.mapper","com.gcaa.status.metrics.mapper"})
 @Configuration
 public class MainCollectorConfig {
 
@@ -20,16 +24,4 @@ public class MainCollectorConfig {
 		return FileSystemView.getFileSystemView();
 	}
 
-	/*@Bean
-	public CacheManager cacheManager() {
-		return new EhCacheCacheManager(ehCacheCacheManager().getObject());
-	}
-
-	@Bean
-	public EhCacheManagerFactoryBean ehCacheCacheManager() {
-		EhCacheManagerFactoryBean factory = new EhCacheManagerFactoryBean();
-		factory.setConfigLocation(new ClassPathResource("ehcache.xml"));
-		factory.setShared(true);
-		return factory;
-	}*/
 }

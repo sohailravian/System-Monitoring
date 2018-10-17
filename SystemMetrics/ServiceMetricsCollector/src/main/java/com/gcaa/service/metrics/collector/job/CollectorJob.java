@@ -5,6 +5,7 @@ import java.util.Optional;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import com.gcaa.common.service.CommonApplicationService;
 import com.gcaa.metrics.domain.model.Category;
 import com.gcaa.metrics.domain.model.Host;
 import com.gcaa.metrics.domain.model.Measurement;
@@ -13,7 +14,6 @@ import com.gcaa.metrics.domain.model.Type;
 import com.gcaa.service.metrics.config.ActivemqRestApiProperties;
 import com.gcaa.service.metrics.model.broker.Broker;
 import com.gcaa.service.metrics.model.broker.QueueDetail;
-import com.gcaa.service.metrics.repository.HostRepository;
 import com.gcaa.service.metrics.service.ApplicationService;
 
 public class CollectorJob {
@@ -25,7 +25,7 @@ public class CollectorJob {
 	private String hostName;
 	
 	@Autowired
-	private HostRepository hostRepository;
+	private CommonApplicationService commonApplicationService;
 	
 	@Autowired
 	private ApplicationService applicationService;
@@ -40,7 +40,7 @@ public class CollectorJob {
 			throw new IllegalArgumentException("Please configure host name in properties file."); 
 		}
 		
-		Optional<Host> optHost = hostRepository.getHostByName(hostName);
+		Optional<Host> optHost = commonApplicationService.getHostByName(hostName);
 		if(!optHost.isPresent()) {
 			throw new IllegalArgumentException("Please configure host name in properties file that should match the name configured in database table {HOST_LOOKUP}");
 		}

@@ -11,7 +11,9 @@ public class CollectorProperties {
 	public static class Process {
 		
 		private String category;
+		private String type;
 		private String filePath;
+		private String measurement;
 		
 		public String getCategory() {
 			return category;
@@ -27,6 +29,22 @@ public class CollectorProperties {
 
 		public void setFilePath(String filePath) {
 			this.filePath = filePath;
+		}
+
+		public String getType() {
+			return type;
+		}
+
+		public void setType(String type) {
+			this.type = type;
+		}
+
+		public String getMeasurement() {
+			return measurement;
+		}
+
+		public void setMeasurement(String measurement) {
+			this.measurement = measurement;
 		}
 	}
 

@@ -1,5 +1,3 @@
-D:\gcaa\workspaces\sts workspace\SystemMetrics\ResourceMetricsCollector\src\main\java\com\gcaa\resource\metrics\mapper\HostMapper.java
-D:\gcaa\workspaces\sts workspace\SystemMetrics\ResourceMetricsCollector\src\main\java\com\gcaa\resource\metrics\repository\MyBatisHostRepository.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\ResourceMetricsCollector\src\main\java\com\gcaa\resource\metrics\repository\MyBatisUtilizationRepository.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\ResourceMetricsCollector\src\main\java\com\gcaa\resource\metrics\collector\DiskSpaceCollector.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\ResourceMetricsCollector\src\main\java\com\gcaa\resource\metrics\config\CollectorProperties.java
@@ -11,7 +9,6 @@ D:\gcaa\workspaces\sts workspace\SystemMetrics\ResourceMetricsCollector\src\main
 D:\gcaa\workspaces\sts workspace\SystemMetrics\ResourceMetricsCollector\src\main\java\com\gcaa\resource\metrics\mapper\UtilizationMapper.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\ResourceMetricsCollector\src\main\java\com\gcaa\resource\metrics\config\PerformanceCollectorProperties.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\ResourceMetricsCollector\src\main\java\com\gcaa\resource\metrics\config\MainCollectorConfig.java
-D:\gcaa\workspaces\sts workspace\SystemMetrics\ResourceMetricsCollector\src\main\java\com\gcaa\resource\metrics\repository\HostRepository.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\ResourceMetricsCollector\src\main\java\com\gcaa\resource\metrics\collector\PerformanceCollector.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\ResourceMetricsCollector\src\main\java\com\gcaa\resource\metrics\repository\BatchRepositoy.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\ResourceMetricsCollector\src\main\java\com\gcaa\resource\metrics\repository\UtilizationRepository.java

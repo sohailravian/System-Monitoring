@@ -6,22 +6,15 @@ public class Status {
 	
 	private long id;
 	private Host host;
-	private Type type;
-	private Category category;
+	private long type;
+	private long category;
 	private Date dateTime;
 	private boolean value;
 	private String info;
-	private Measurement measurement = null;
+	private long measurement;
 	
-	public Measurement getMeasurement() {
-		return measurement;
-	}
-
-	public void setMeasurement(Measurement measurement) {
-		this.measurement = measurement;
-	}
-
-	protected Status(long id, Host host, Type type, Category category, Date dateTime, boolean value) {
+	
+	protected Status(long id, Host host, long type, long category, Date dateTime, boolean value) {
 		super();
 		this.id = id;
 		this.host = host;
@@ -31,7 +24,7 @@ public class Status {
 		this.value = value;
 	}
 	
-	public Status(Host host, Type type, Category category, Date dateTime, boolean value) {
+	public Status(Host host, long type, long category, Date dateTime, boolean value) {
 		super();
 		this.host = host;
 		this.type = type;
@@ -52,16 +45,16 @@ public class Status {
 	public void setHost(Host host) {
 		this.host = host;
 	}
-	public Type getType() {
+	public long getType() {
 		return type;
 	}
-	public void setType(Type type) {
+	public void setType(long type) {
 		this.type = type;
 	}
-	public Category getCategory() {
+	public long getCategory() {
 		return category;
 	}
-	public void setCategory(Category category) {
+	public void setCategory(long category) {
 		this.category = category;
 	}
 	public Date getDateTime() {
@@ -83,6 +76,14 @@ public class Status {
 
 	public void setInfo(String info) {
 		this.info = info;
+	}
+
+	public long getMeasurement() {
+		return measurement;
+	}
+
+	public void setMeasurement(long measurement) {
+		this.measurement = measurement;
 	}
 	
 		

@@ -9,7 +9,7 @@
     {
       "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties",
       "name": "status.upstream-server",
-      "sourceMethod": "getUpstreamServer()",
+      "sourceMethod": "public com.gcaa.status.metrics.config.StatusCollectorProperties.UpstreamServer getUpstreamServer() ",
       "type": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer"
     }
   ],
@@ -26,9 +26,48 @@
     },
     {
       "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties",
-      "defaultValue": 0,
       "name": "status.unit",
       "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.category",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.category",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.category",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.category",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.category",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.category",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.category",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.category",
+      "type": "java.lang.String"
     },
     {
       "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
@@ -42,7 +81,127 @@
     },
     {
       "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.directory-path",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.directory-path",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.directory-path",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.directory-path",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.directory-path",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.directory-path",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.directory-path",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.directory-path",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
       "name": "status.upstream-server.extension",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.extension",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.extension",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.extension",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.extension",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.extension",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.extension",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.extension",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.extension",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.measurement",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.measurement",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.measurement",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.type",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.type",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.type",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.type",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer",
+      "name": "status.upstream-server.type",
       "type": "java.lang.String"
     }
   ]

@@ -26,6 +26,8 @@ public class StatusCollectorProperties extends CollectorProperties {
 	public static class UpstreamServer{
 		
 		private String category;
+		private String type;
+		private String measurement;
 		private String directoryPath;
 		private String extension;
 		
@@ -46,6 +48,18 @@ public class StatusCollectorProperties extends CollectorProperties {
 		}
 		public void setExtension(String extension) {
 			this.extension = extension;
+		}
+		public String getType() {
+			return type;
+		}
+		public void setType(String type) {
+			this.type = type;
+		}
+		public String getMeasurement() {
+			return measurement;
+		}
+		public void setMeasurement(String measurement) {
+			this.measurement = measurement;
 		}
 		
 	} 

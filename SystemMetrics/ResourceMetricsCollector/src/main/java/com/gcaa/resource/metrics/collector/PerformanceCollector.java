@@ -44,7 +44,7 @@ public class PerformanceCollector implements Collector {
 	private final String PROCESS_CHILD_COMMAND = "--ppid";
 	private final String PROCESS_CHILD_PID = "pid,%cpu";
 	
-	public static transient long scheduleTime;
+	public static transient long scheduleTime = 1;
 
 	@Autowired
 	public PerformanceCollector(SystemInfo systemInfo) {
@@ -107,7 +107,7 @@ public class PerformanceCollector implements Collector {
 					childProcessPreviousTime.put(osProcess.getProcessID(), childCurrentTime);
 			}
 			
-			double used = doubleFormatter(processCpu);
+			double used = doubleFormatter(processCpu > 100  && processCpu<0 ? process.calculateCpuPercent() : processCpu);
 			cpu = Optional.ofNullable(new CPU(doubleFormatter(used) ,doubleFormatter(total)));
 		}
 		return cpu;

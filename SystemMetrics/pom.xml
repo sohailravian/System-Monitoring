@@ -67,6 +67,7 @@
 
 	<modules>
 		<module>MetricsDomain</module>
+		<module>CommonRepository</module>
 		<module>ResourceMetricsCollector</module>
 		<module>StatusMetricsCollector</module>
    		<module>ServiceMetricsCollector</module>

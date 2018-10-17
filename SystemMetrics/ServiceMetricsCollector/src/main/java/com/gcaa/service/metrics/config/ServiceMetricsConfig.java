@@ -2,10 +2,13 @@ package com.gcaa.service.metrics.config;
 
 import java.util.Arrays;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.http.MediaType;
 import org.springframework.http.client.support.BasicAuthorizationInterceptor;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -15,6 +18,9 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+@ComponentScan(basePackages = {"com.gcaa.common.repository","com.gcaa.common.service"})
+@ImportResource (locations = {"classpath*:mapper/HostMapper.xml"})
+@MapperScan(basePackages = {"com.gcaa.common.mapper","com.gcaa.service.metrics.mapper"})
 @Configuration
 public class ServiceMetricsConfig {
 

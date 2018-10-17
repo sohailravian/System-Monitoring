@@ -1,0 +1,45 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.gcaa.common.mapper.LookupMapper"> 
+	
+	<select id="getCategoryLookupByCode" parameterType="string" resultMap="categoryResult" resultType="com.gcaa.common.model.CategoryLookup">
+		select c.ID,c.CODE,c.DESCRIPTION from CATEGORY_LOOKUP c
+		where UPPER(c.CODE)= #{categoryCode} 
+	</select>
+	
+	<select id="getTypeLookupByCode" parameterType="string" resultMap="TypeResult" resultType="com.gcaa.common.model.TypeLookup">
+		select t.ID,t.CODE,t.DESCRIPTION from TYPE_LOOKUP t
+		where UPPER(t.CODE)= #{typeCode} 
+	</select>
+	
+	<select id="getMeasurementLookupByCode" parameterType="string" resultMap="measurementResult" resultType="com.gcaa.common.model.MeasurementLookup">
+		select m.ID,m.CODE,m.DESCRIPTION from MEASUREMENT_LOOKUP m
+		where UPPER(m.CODE)= #{typeCode} 
+	</select>
+	
+	<resultMap type="com.gcaa.common.model.CategoryLookup" id="categoryResult">
+		<constructor>
+			<arg column="CODE" javaType="String" jdbcType="VARCHAR"/>
+			<arg column="DESCRIPTION" javaType="String" jdbcType="VARCHAR"/>
+		</constructor>
+		<id column="ID" property="id"/>
+	</resultMap>	
+	
+	<resultMap type="com.gcaa.common.model.TypeLookup" id="TypeResult">
+		<constructor>
+			<arg column="CODE" javaType="String" jdbcType="VARCHAR"/>
+			<arg column="DESCRIPTION" javaType="String" jdbcType="VARCHAR"/>
+		</constructor>
+		<id column="ID" property="id"/>
+	</resultMap>	
+	
+	<resultMap type="com.gcaa.common.model.MeasurementLookup" id="measurementResult">
+		<constructor>
+			<arg column="CODE" javaType="String" jdbcType="VARCHAR"/>
+			<arg column="DESCRIPTION" javaType="String" jdbcType="VARCHAR"/>
+		</constructor>
+		<id column="ID" property="id"/>
+	</resultMap>
+		
+</mapper>	

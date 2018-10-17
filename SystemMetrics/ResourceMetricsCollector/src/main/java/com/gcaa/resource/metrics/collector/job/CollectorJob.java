@@ -6,13 +6,12 @@ import java.util.Optional;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import com.gcaa.common.service.CommonApplicationService;
 import com.gcaa.metrics.domain.model.Category;
 import com.gcaa.metrics.domain.model.Host;
 import com.gcaa.metrics.domain.model.Resource;
 import com.gcaa.metrics.domain.model.Type;
 import com.gcaa.metrics.domain.model.Utilization;
-import com.gcaa.resource.metrics.repository.HostRepository;
-
 import oshi.SystemInfo;
 
 public class CollectorJob {
@@ -24,7 +23,7 @@ public class CollectorJob {
 	private String hostName;
 	
 	@Autowired
-	private HostRepository hostRepository;
+	private CommonApplicationService commonApplicationService;
 	
 	@PostConstruct
 	public void afterIntilization() {
@@ -33,7 +32,7 @@ public class CollectorJob {
 			throw new IllegalArgumentException("Please configure host name in properties file."); 
 		}
 		
-		Optional<Host> optHost = hostRepository.getHostByName(hostName);
+		Optional<Host> optHost = commonApplicationService.getHostByName(hostName);
 		if(!optHost.isPresent()) {
 			throw new IllegalArgumentException("Please configure host name in properties file that should match the name configured in database table {HOST_LOOKUP}");
 		}
@@ -44,10 +43,7 @@ public class CollectorJob {
 	
 	protected double cpuConsumption(OperatingSystemMXBean operatingSystemMXBean,SystemInfo systemInfo) {
 		double used = 0 ;
-	//	if(systemInfo.getOperatingSystem().getFamily().contains("Window")){
-			used = systemInfo.getHardware().getProcessor().getSystemCpuLoad() * HUNDRED_PERCENT; 
-		//	used = operatingSystemMXBean.getSystemLoadAverage()  * HUNDRED_PERCENT;
-	//	}
+		used = systemInfo.getHardware().getProcessor().getSystemCpuLoad() * HUNDRED_PERCENT; 
 		return used;
 	}
 	
