@@ -5,6 +5,7 @@ D:\gcaa\workspaces\sts workspace\SystemMetrics\StatusMetricsCollector\src\main\j
 D:\gcaa\workspaces\sts workspace\SystemMetrics\StatusMetricsCollector\src\main\java\com\gcaa\status\metrics\repository\StatusRepository.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\StatusMetricsCollector\src\main\java\com\gcaa\status\metrics\StatusMetricsCollectorApplication.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\StatusMetricsCollector\src\main\java\com\gcaa\status\metrics\collector\job\CollectorJob.java
+D:\gcaa\workspaces\sts workspace\SystemMetrics\StatusMetricsCollector\src\main\java\com\gcaa\status\metrics\collector\job\UpstreamServerService.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\StatusMetricsCollector\src\main\java\com\gcaa\status\metrics\collector\StatusCollector.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\StatusMetricsCollector\src\main\java\com\gcaa\status\metrics\repository\BatchRepositoy.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\StatusMetricsCollector\src\main\java\com\gcaa\status\metrics\config\StatusCollectorProperties.java

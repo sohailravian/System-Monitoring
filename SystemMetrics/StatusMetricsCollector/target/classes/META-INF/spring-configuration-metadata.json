@@ -9,7 +9,7 @@
     {
       "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties",
       "name": "status.upstream-server",
-      "sourceMethod": "public com.gcaa.status.metrics.config.StatusCollectorProperties.UpstreamServer getUpstreamServer() ",
+      "sourceMethod": "getUpstreamServer()",
       "type": "com.gcaa.status.metrics.config.StatusCollectorProperties$UpstreamServer"
     }
   ],
@@ -26,6 +26,7 @@
     },
     {
       "sourceType": "com.gcaa.status.metrics.config.StatusCollectorProperties",
+      "defaultValue": 0,
       "name": "status.unit",
       "type": "java.lang.Long"
     },

@@ -1,0 +1,5 @@
+com\gcaa\common\repository\HostRepository.class
+com\gcaa\common\mapper\HostMapper.class
+com\gcaa\common\service\CommonApplicationService.class
+com\gcaa\common\CommonRepositoryApplication.class
+com\gcaa\common\repository\MyBatisHostRepository.class

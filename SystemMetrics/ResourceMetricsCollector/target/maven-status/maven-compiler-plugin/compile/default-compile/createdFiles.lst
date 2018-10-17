@@ -15,12 +15,15 @@ com\gcaa\resource\metrics\config\MainCollectorConfig.class
 com\gcaa\resource\metrics\collector\job\DiskSpaceCollectorJob.class
 com\gcaa\resource\metrics\config\DiskSpaceCollectorProperties.class
 com\gcaa\resource\metrics\config\CollectorProperties$Process.class
+META-INF\MANIFEST.MF
 com\gcaa\resource\metrics\collector\MemoryCollector.class
 com\gcaa\resource\metrics\collector\job\PerformanceCollectorJob.class
 com\gcaa\resource\metrics\repository\MyBatisUtilizationRepository.class
 com\gcaa\resource\metrics\mapper\UtilizationMapper.class
 com\gcaa\resource\metrics\mapper\HostMapper.class
+META-INF\maven\com.gcaa.resource.metrics\ResourceMetricsCollector\pom.xml
 com\gcaa\resource\metrics\collector\Collector.class
 com\gcaa\resource\metrics\collector\TopPerformanceCollector.class
 com\gcaa\resource\metrics\collector\PerformanceCollector.class
 com\gcaa\resource\metrics\collector\job\CollectorJob.class
+META-INF\maven\com.gcaa.resource.metrics\ResourceMetricsCollector\pom.properties
