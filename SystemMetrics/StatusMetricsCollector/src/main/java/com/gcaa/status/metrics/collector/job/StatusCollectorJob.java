@@ -50,6 +50,7 @@ public class StatusCollectorJob extends CollectorJob{
 	@PostConstruct
 	public void postInitilization() {
 		this.setType(getCommonApplicationService().getTypeLookupByCode(statusProperties.getType()).get());
+		this.setMeasurement(getCommonApplicationService().getMeasurementByCode(statusProperties.getMeasurement()).get());
 	}
 	
 	@Scheduled(cron = "${status.frequency-cron}")
@@ -75,11 +76,10 @@ public class StatusCollectorJob extends CollectorJob{
 					}
 					
 					Category category = getCommonApplicationService().getCategoryLookupByCode(process.getCategory()).get();
-					Measurement measurement = getCommonApplicationService().getMeasurementByCode(process.getMeasurement()).get();
 					
 					Status statusMetrics = new Status(getHost(),this.getType(), category, new Date(), processStatus);
-					statusMetrics.setInfo(Category1.categoryByCode(process.getCategory()).name());
-					statusMetrics.setMeasurement(measurement);
+					statusMetrics.setInfo(category.getDescription());
+					statusMetrics.setMeasurement(this.getMeasurement());
 					statusList.add(statusMetrics);
 				});
 			

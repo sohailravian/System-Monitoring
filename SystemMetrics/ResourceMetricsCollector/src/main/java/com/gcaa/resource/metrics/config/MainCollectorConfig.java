@@ -9,7 +9,6 @@ import org.springframework.context.annotation.ImportResource;
 import oshi.SystemInfo;
 
 @ComponentScan(basePackages = {"com.gcaa.common.*"})
-@ImportResource(locations = {"classpath*:mapper/HostMapper.xml"})
 @MapperScan(basePackages = {"com.gcaa.common.mapper","com.gcaa.resource.metrics.mapper"})
 @Configuration
 public class MainCollectorConfig {

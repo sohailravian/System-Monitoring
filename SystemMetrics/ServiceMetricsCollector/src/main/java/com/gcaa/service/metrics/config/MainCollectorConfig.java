@@ -19,7 +19,6 @@ import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @ComponentScan(basePackages = {"com.gcaa.common.*"})
-@ImportResource (locations = {"classpath*:mapper/HostMapper.xml"})
 @MapperScan(basePackages = {"com.gcaa.common.mapper","com.gcaa.service.metrics.mapper"})
 @Configuration
 public class MainCollectorConfig {

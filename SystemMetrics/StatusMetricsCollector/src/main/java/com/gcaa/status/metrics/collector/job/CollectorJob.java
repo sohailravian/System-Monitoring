@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import com.gcaa.common.service.CommonApplicationService;
 import com.gcaa.metrics.domain.model.Host;
+import com.gcaa.metrics.domain.model.Measurement;
 import com.gcaa.metrics.domain.model.Type;
 
 @Component
@@ -16,6 +17,7 @@ public class CollectorJob {
 	public static int HUNDRED_PERCENT=100;
 	private Host host;
 	protected Type type;
+	protected Measurement measurement;
 	
 	@Value("${host.name}")
 	private String hostName;
@@ -65,6 +67,14 @@ public class CollectorJob {
 		this.type = type;
 	}
 
+	public void setMeasurement(Measurement measurement) {
+		this.measurement = measurement;
+	}
+	
+	public Measurement getMeasurement() {
+		return measurement;
+	}
+	
 	public CommonApplicationService getCommonApplicationService() {
 		return commonApplicationService;
 	}

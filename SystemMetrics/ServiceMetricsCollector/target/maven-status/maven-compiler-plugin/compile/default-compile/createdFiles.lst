@@ -11,10 +11,10 @@ com\gcaa\service\metrics\mapper\MetricsMapper.class
 com\gcaa\service\metrics\config\ActivemqRestApiProperties.class
 com\gcaa\service\metrics\collector\job\BrokerCollectorJob.class
 com\gcaa\service\metrics\repository\MetricsRepository.class
+com\gcaa\service\metrics\config\MainCollectorConfig.class
 com\gcaa\service\metrics\model\broker\QueueDetail.class
 com\gcaa\service\metrics\model\broker\Destination.class
 com\gcaa\service\metrics\collector\job\CollectorJob$1.class
-com\gcaa\service\metrics\config\ServiceMetricsConfig.class
 com\gcaa\service\metrics\service\ApplicationService.class
 com\gcaa\service\metrics\collector\BrokerCollector.class
 com\gcaa\service\metrics\collector\Collector.class

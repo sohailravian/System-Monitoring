@@ -30,11 +30,13 @@
     },
     {
       "sourceType": "com.gcaa.resource.metrics.config.PerformanceCollectorProperties",
+      "defaultValue": 0,
       "name": "cpu.frequency-seconds",
       "type": "java.lang.Integer"
     },
     {
       "sourceType": "com.gcaa.resource.metrics.config.PerformanceCollectorProperties",
+      "defaultValue": 0,
       "name": "cpu.process-count",
       "type": "java.lang.Integer"
     },
@@ -60,6 +62,7 @@
     },
     {
       "sourceType": "com.gcaa.resource.metrics.config.DiskSpaceCollectorProperties",
+      "defaultValue": 0,
       "name": "disk.frequency-seconds",
       "type": "java.lang.Integer"
     },
@@ -70,6 +73,7 @@
     },
     {
       "sourceType": "com.gcaa.resource.metrics.config.DiskSpaceCollectorProperties",
+      "defaultValue": 0,
       "name": "disk.process-count",
       "type": "java.lang.Integer"
     },
@@ -85,6 +89,7 @@
     },
     {
       "sourceType": "com.gcaa.resource.metrics.config.DiskSpaceCollectorProperties",
+      "defaultValue": 0,
       "name": "disk.unit",
       "type": "java.lang.Long"
     },
@@ -100,11 +105,13 @@
     },
     {
       "sourceType": "com.gcaa.resource.metrics.config.MemoryCollectorProperties",
+      "defaultValue": 0,
       "name": "memory.frequency-seconds",
       "type": "java.lang.Integer"
     },
     {
       "sourceType": "com.gcaa.resource.metrics.config.MemoryCollectorProperties",
+      "defaultValue": 0,
       "name": "memory.process-count",
       "type": "java.lang.Integer"
     },
@@ -120,6 +127,7 @@
     },
     {
       "sourceType": "com.gcaa.resource.metrics.config.MemoryCollectorProperties",
+      "defaultValue": 0,
       "name": "memory.unit",
       "type": "java.lang.Long"
     }

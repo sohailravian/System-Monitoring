@@ -8,12 +8,12 @@ public class CollectorProperties {
 	private String frequencyCron;
 	private List<Process> processIds = new ArrayList<>();
 	private String type;
+	private String measurement;
 
 	public static class Process {
 
 		private String category;
 		private String filePath;
-		private String measurement;
 
 		public String getCategory() {
 			return category;
@@ -31,13 +31,6 @@ public class CollectorProperties {
 			this.filePath = filePath;
 		}
 
-		public String getMeasurement() {
-			return measurement;
-		}
-
-		public void setMeasurement(String measurement) {
-			this.measurement = measurement;
-		}
 	}
 
 	public List<Process> getProcessIds() {
@@ -62,6 +55,14 @@ public class CollectorProperties {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getMeasurement() {
+		return measurement;
+	}
+
+	public void setMeasurement(String measurement) {
+		this.measurement = measurement;
 	}
 
 }

@@ -1,5 +1,6 @@
 D:\gcaa\workspaces\sts workspace\SystemMetrics\ServiceMetricsCollector\src\main\java\com\gcaa\service\metrics\ServiceCollectorApplication.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\ServiceMetricsCollector\src\main\java\com\gcaa\service\metrics\model\broker\QueueDetail.java
+D:\gcaa\workspaces\sts workspace\SystemMetrics\ServiceMetricsCollector\src\main\java\com\gcaa\service\metrics\config\MainCollectorConfig.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\ServiceMetricsCollector\src\main\java\com\gcaa\service\metrics\model\broker\Queue.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\ServiceMetricsCollector\src\main\java\com\gcaa\service\metrics\repository\BatchRepositoy.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\ServiceMetricsCollector\src\main\java\com\gcaa\service\metrics\config\BrokerCollectorProperties.java
@@ -7,7 +8,6 @@ D:\gcaa\workspaces\sts workspace\SystemMetrics\ServiceMetricsCollector\src\main\
 D:\gcaa\workspaces\sts workspace\SystemMetrics\ServiceMetricsCollector\src\main\java\com\gcaa\service\metrics\config\QueueCollectorProperties.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\ServiceMetricsCollector\src\main\java\com\gcaa\service\metrics\collector\job\QueueCollectorJob.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\ServiceMetricsCollector\src\main\java\com\gcaa\service\metrics\repository\MetricsRepository.java
-D:\gcaa\workspaces\sts workspace\SystemMetrics\ServiceMetricsCollector\src\main\java\com\gcaa\service\metrics\config\ServiceMetricsConfig.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\ServiceMetricsCollector\src\main\java\com\gcaa\service\metrics\model\broker\BrokerDetail.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\ServiceMetricsCollector\src\main\java\com\gcaa\service\metrics\collector\BrokerCollector.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\ServiceMetricsCollector\src\main\java\com\gcaa\service\metrics\config\DestinationCollectorProperties.java
