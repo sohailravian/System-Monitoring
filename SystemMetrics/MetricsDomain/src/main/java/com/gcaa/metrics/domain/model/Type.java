@@ -1,38 +1,43 @@
 package com.gcaa.metrics.domain.model;
 
-import java.util.Arrays;
+import java.io.Serializable;
 
-public enum Type {
+public class Type implements Serializable {
+
+	private static final long serialVersionUID = 6391589797888243895L;
+	private long id;	
+	private String code;
+	private String description;
 	
-	SYSTEM(1,"TYP001"),
-	SERVICE(2,"TYP002"),
-	UN_RESOLVED(100,"TYP100"),;
+	protected Type() {}
 	
-	private Type(int id,String code) {
-		this.id=id;
-		this.code=code;
+	public Type(long id,String code,String description) {
+		this.code = code;
+		this.description =	description;
 	}
 	
-	private String code;
-	private int id;
+	protected Type(String code,String description) {
+		this.code = code;
+		this.description =	description;
+	}
 	
-	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getCode() {
 		return code;
 	}
 	public void setCode(String code) {
 		this.code = code;
 	}
-	public int getId() {
-		return id;
+	public String getDescription() {
+		return description;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setDescription(String description) {
+		this.description = description;
 	}
-	
-	public static Type typeByCode(String code) {
-		return Arrays.stream(Type.values()).
-				filter(type -> code.equalsIgnoreCase(type.getCode())).findFirst().orElse(UN_RESOLVED);
-	}
-	
+
 }

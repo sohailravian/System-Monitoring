@@ -3,7 +3,6 @@ package com.gcaa.resource.metrics.collector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import com.gcaa.metrics.domain.model.CPU;
 import com.gcaa.metrics.domain.model.Resource;
@@ -11,9 +10,7 @@ import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.software.os.OSProcess;
 import oshi.software.os.OperatingSystem.ProcessSort;
-
 import static com.gcaa.metrics.domain.common.util.NumberUtils.*;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.management.ManagementFactory;

@@ -13,12 +13,15 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.gcaa.metrics.domain.model.Category;
+import com.gcaa.metrics.domain.model.Category1;
 import com.gcaa.metrics.domain.model.Host;
-import com.gcaa.metrics.domain.model.Type;
+import com.gcaa.metrics.domain.model.Type1;
 import com.gcaa.metrics.domain.model.Utilization;
 import com.gcaa.resource.metrics.repository.UtilizationRepository;
 import com.gcaa.resource.metrics.repository.MyBatisUtilizationRepository;
 import com.gcaa.metrics.domain.model.Memory;
+import com.gcaa.metrics.domain.model.Type;
+
 import oshi.SystemInfo;
 
 @RunWith(SpringRunner.class)
@@ -43,8 +46,8 @@ public class MyBatisMetricsTest {
 	public void saveMetrics() {
 		
 		Utilization metrics = new Utilization(new Host(1, "Machine 1"), 
-									  Type.SERVICE, 
-									  Category.RIE, 
+									  new Type(1, "TYP001", "11"), 
+									  new Category(1, "CAT001", "11"),  
 									  new Memory(10,50),
 									  new Date() 
 									  );

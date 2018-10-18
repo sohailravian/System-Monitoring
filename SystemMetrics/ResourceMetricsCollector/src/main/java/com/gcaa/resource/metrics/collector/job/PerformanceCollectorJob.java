@@ -9,18 +9,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+
+import javax.annotation.PostConstruct;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
 import com.gcaa.metrics.domain.common.util.FileUtils;
 import com.gcaa.metrics.domain.model.CPU;
 import com.gcaa.metrics.domain.model.Category;
 import com.gcaa.metrics.domain.model.GcaaOSProcess;
 import com.gcaa.metrics.domain.model.Resource;
-import com.gcaa.metrics.domain.model.Type;
 import com.gcaa.metrics.domain.model.Utilization;
 import com.gcaa.resource.metrics.collector.PerformanceCollector;
 import com.gcaa.resource.metrics.collector.TopPerformanceCollector;
@@ -61,6 +62,12 @@ public class PerformanceCollectorJob extends CollectorJob {
 		operatingSystemMXBean = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
 	}
 	
+	@PostConstruct
+	public void postInitilization() {
+		this.setType(getCommonApplicationService().getTypeLookupByCode(performanceProperties.getType()).get());
+		this.setCategory(getCommonApplicationService().getCategoryLookupByCode(performanceProperties.getCategory()).get());
+	}
+	
 	@Scheduled(cron = "${cpu.frequency-cron}")
 	public void collectScheduledMemoryUtilization() {
 		LOGGER.info("{ CPU collection job started }");
@@ -76,8 +83,11 @@ public class PerformanceCollectorJob extends CollectorJob {
 	public void collectPerformanceForSpecificProcesses(){
 		
 		List<Utilization> UtilizationList = new ArrayList<Utilization>();
+		
 		if(!performanceProperties.getProcessIds().isEmpty()){
 			double totalCpuUsed = cpuConsumption(operatingSystemMXBean,systemInfo);
+			
+			
 			performanceProperties.getProcessIds().forEach(process -> {
 					
 					Optional<Integer> processId = FileUtils.getProcessIdByFilePath(process.getFilePath());
@@ -86,9 +96,11 @@ public class PerformanceCollectorJob extends CollectorJob {
 						LOGGER.info("{ Process id {" + processId.get() +" } found with path { " + process.getFilePath() + " }}");
 						Optional<Resource> cpu= performanceCollector.collectByProcessId(processId.get());
 						if(cpu.isPresent()) {
+							
+							Category category = getCommonApplicationService().getCategoryLookupByCode(process.getCategory()).get();
+							
 							cpu.get().setTotal(doubleFormatter(totalCpuUsed));
-							Utilization utilization = utilization(Type.SYSTEM, Category.CPU,(Category.categoryByCode(process.getName()).name()+ " | " +processId.get()),
-									Category.categoryByCode(process.getName()).name(), cpu.get());
+							Utilization utilization = utilization(getType(), getCategory(),category.getDescription()+ " | " +processId.get(), category.getDescription(), cpu.get());
 							UtilizationList.add(utilization);
 						}
 					}
@@ -104,7 +116,7 @@ public class PerformanceCollectorJob extends CollectorJob {
 		List<Utilization> utilizationList = new ArrayList<Utilization>();
 		List<Resource> resources = topPerformanceCollector.collectionTopProcess(performanceProperties.getProcessCount());
 		resources.forEach(cpu -> {
-			Utilization utilization = utilization(Type.SYSTEM, Category.CPU, ((CPU)cpu).getName(), ((CPU)cpu).getName().split("\\|")[0].trim(), cpu);
+			Utilization utilization = utilization(getType(), getCategory(), ((CPU)cpu).getName(), ((CPU)cpu).getName().split("\\|")[0].trim(), cpu);
 			utilizationList.add(utilization);
 		});
 		
@@ -114,7 +126,7 @@ public class PerformanceCollectorJob extends CollectorJob {
 	
 	public void collectSystemPerformance(){
 		Optional<Resource> memory= performanceCollector.collect();
-		Utilization utilization = utilization(Type.SYSTEM, Category.CPU, Type.SYSTEM.name(),  Type.SYSTEM.name(), memory.get());
+		Utilization utilization = utilization(getType(), getCategory(), getType().getDescription(),  getType().getDescription(), memory.get());
 		applicationService.saveUtilization(utilization);
 		
 	}

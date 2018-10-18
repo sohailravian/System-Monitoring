@@ -15,12 +15,12 @@
 		)
 		values (
 		#{host.id},
-		#{type},
-		#{category},
+		#{type.id},
+		#{category.id},
 		#{dateTime},
 		#{value},
 		#{info}
-		<if test="measurement != null">, #{measurement}
+		<if test="measurement != null">, #{measurement.id}
 		</if>
 		)
 		

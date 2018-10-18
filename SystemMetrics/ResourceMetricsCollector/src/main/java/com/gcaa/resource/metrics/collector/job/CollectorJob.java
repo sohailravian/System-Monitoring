@@ -18,6 +18,8 @@ public class CollectorJob {
 	
 	public static int HUNDRED_PERCENT=100;
 	private Host host;
+	protected Type type;
+	protected Category category;
 	
 	@Value("${host.name}")
 	private String hostName;
@@ -38,7 +40,6 @@ public class CollectorJob {
 		}
 		
 		host = optHost.get();
-		
 	}
 	
 	protected double cpuConsumption(OperatingSystemMXBean operatingSystemMXBean,SystemInfo systemInfo) {
@@ -68,6 +69,25 @@ public class CollectorJob {
 
 	public void setHostName(String hostName) {
 		this.hostName = hostName;
+	}
+	public CommonApplicationService getCommonApplicationService() {
+		return commonApplicationService;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public Type getType() {
+		return type;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
 	}
 
 }

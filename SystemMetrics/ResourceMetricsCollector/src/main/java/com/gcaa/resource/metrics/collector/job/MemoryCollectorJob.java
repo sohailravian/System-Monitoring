@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+
+import javax.annotation.PostConstruct;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
 import com.gcaa.metrics.domain.common.util.FileUtils;
 import com.gcaa.metrics.domain.model.Category;
 import com.gcaa.metrics.domain.model.Memory;
@@ -20,11 +22,9 @@ import com.gcaa.metrics.domain.model.Utilization;
 import com.gcaa.resource.metrics.collector.MemoryCollector;
 import com.gcaa.resource.metrics.config.MemoryCollectorProperties;
 import com.gcaa.resource.metrics.service.ApplicationService;
-
 import oshi.SystemInfo;
 import oshi.software.os.OSProcess;
 import oshi.software.os.OperatingSystem.ProcessSort;
-
 
 @Component
 public class MemoryCollectorJob extends CollectorJob {
@@ -45,6 +45,12 @@ public class MemoryCollectorJob extends CollectorJob {
 		this.memoryCollector	= memoryCollector;
 	}
 	
+	@PostConstruct
+	public void postInitilization() {
+		this.setType(getCommonApplicationService().getTypeLookupByCode(memoryProperties.getType()).get());
+		this.setCategory(getCommonApplicationService().getCategoryLookupByCode(memoryProperties.getCategory()).get());
+	}
+	
 	@Scheduled(cron = "${memory.frequency-cron}")
 	public void collectScheduledMemoryUtilization() {
 		
@@ -61,6 +67,7 @@ public class MemoryCollectorJob extends CollectorJob {
 			
 			List<Utilization> UtilizationList = new ArrayList<Utilization>();
 			double totalMemory = Double.valueOf(systemInfo.getHardware().getMemory().getTotal()) / Double.valueOf(memoryProperties.getUnit());
+			
 			memoryProperties.getProcessIds().forEach(process -> {
 					Optional<Integer> processId = FileUtils.getProcessIdByFilePath(process.getFilePath());
 					
@@ -68,9 +75,11 @@ public class MemoryCollectorJob extends CollectorJob {
 						LOGGER.info(" { Process id {" + processId.get() +" } found with path { " + process.getFilePath() + " }}");
 						Optional<Resource> memory= memoryCollector.collectByProcessId(processId.get());
 						if(memory.isPresent()) {
+							
+							Category category = getCommonApplicationService().getCategoryLookupByCode(process.getCategory()).get();
+							
 							memory.get().setTotal(doubleFormatter(totalMemory));
-							Utilization utilization = utilization(Type.SYSTEM, Category.MEMORY, Category.categoryByCode(process.getName()).name() + " | "+ processId.get(),
-									Category.categoryByCode(process.getName()).name(), memory.get());
+							Utilization utilization = utilization(this.getType(), this.getCategory(), category.getDescription() + " | "+ processId.get(), category.getDescription(), memory.get());
 							UtilizationList.add(utilization);
 						}
 					}
@@ -85,6 +94,7 @@ public class MemoryCollectorJob extends CollectorJob {
 		List<Utilization> UtilizationList = new ArrayList<Utilization>();
 		double totalMemory = Double.valueOf(systemInfo.getHardware().getMemory().getTotal()) / Double.valueOf(memoryProperties.getUnit());
 		OSProcess[] osProcesses = systemInfo.getOperatingSystem().getProcesses(memoryProperties.getProcessCount(), ProcessSort.MEMORY);
+		
 		Arrays.stream(osProcesses).forEach(process -> {
 				double used	= (double)(process.getResidentSetSize()) / (double)memoryProperties.getUnit();
 				double total = totalMemory;
@@ -94,7 +104,7 @@ public class MemoryCollectorJob extends CollectorJob {
 					name = memoryCollector.javaProcessName(process);
 				}
 				
-				Utilization utilization = utilization(Type.SYSTEM, Category.MEMORY, (name + " | "+ process.getProcessID()),name, memory);
+				Utilization utilization = utilization(this.getType(), this.getCategory(), (name + " | "+ process.getProcessID()),name, memory);
 				UtilizationList.add(utilization);
 			});
 			
@@ -103,8 +113,12 @@ public class MemoryCollectorJob extends CollectorJob {
 
 	
 	public void collectSystemMemory(){
+		
+		Type type = getCommonApplicationService().getTypeLookupByCode(memoryProperties.getType()).get();
+		Category category = getCommonApplicationService().getCategoryLookupByCode(memoryProperties.getCategory()).get();
+		
 		Optional<Resource> memory= memoryCollector.collect();
-		Utilization utilization = utilization(Type.SYSTEM, Category.MEMORY, Type.SYSTEM.name(),Type.SYSTEM.name(), memory.get());
+		Utilization utilization = utilization(type, category, type.getDescription(),type.getDescription(), memory.get());
 		applicationService.saveUtilization(utilization);
 	}
 	

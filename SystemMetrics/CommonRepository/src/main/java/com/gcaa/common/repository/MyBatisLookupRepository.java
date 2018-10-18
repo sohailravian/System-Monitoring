@@ -4,9 +4,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.gcaa.common.mapper.LookupMapper;
-import com.gcaa.common.model.CategoryLookup;
-import com.gcaa.common.model.MeasurementLookup;
-import com.gcaa.common.model.TypeLookup;
+import com.gcaa.metrics.domain.model.Category;
+import com.gcaa.metrics.domain.model.Measurement;
+import com.gcaa.metrics.domain.model.Type;
 
 @Repository
 public class MyBatisLookupRepository implements LookupRepository{
@@ -15,24 +15,24 @@ public class MyBatisLookupRepository implements LookupRepository{
 	private LookupMapper lookupMapper;
 
 	@Override
-	public Optional<CategoryLookup> getCategoryLookupByCode(String categoryCode) {
-		CategoryLookup lookup = lookupMapper.getCategoryLookupByCode(categoryCode);
+	public Optional<Category> getCategoryLookupByCode(String categoryCode) {
+		Category lookup = lookupMapper.getCategoryLookupByCode(categoryCode);
 		if(null == lookup)
 			return Optional.empty();
 		return Optional.of(lookup);
 	}
 
 	@Override
-	public Optional<TypeLookup> getTypeLookupByCode(String typeCode) {
-		TypeLookup lookup = lookupMapper.getTypeLookupByCode(typeCode);
+	public Optional<Type> getTypeLookupByCode(String typeCode) {
+		Type lookup = lookupMapper.getTypeLookupByCode(typeCode);
 		if(null == lookup)
 			return Optional.empty();
 		return Optional.of(lookup);
 	}
 
 	@Override
-	public Optional<MeasurementLookup> getMeasurementLookupByCode(String measurementCode) {
-		MeasurementLookup lookup = lookupMapper.getMeasurementLookupByCode(measurementCode);
+	public Optional<Measurement> getMeasurementLookupByCode(String measurementCode) {
+		Measurement lookup = lookupMapper.getMeasurementLookupByCode(measurementCode);
 		if(null == lookup)
 			return Optional.empty();
 		return Optional.of(lookup);

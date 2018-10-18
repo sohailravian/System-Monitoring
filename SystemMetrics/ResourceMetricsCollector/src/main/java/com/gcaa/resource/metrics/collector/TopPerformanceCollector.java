@@ -3,17 +3,13 @@ package com.gcaa.resource.metrics.collector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import com.gcaa.metrics.domain.model.CPU;
 import com.gcaa.metrics.domain.model.Resource;
 import oshi.SystemInfo;
 import oshi.software.os.OSProcess;
 import oshi.software.os.OperatingSystem.ProcessSort;
-
 import static com.gcaa.metrics.domain.common.util.NumberUtils.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.options;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.management.ManagementFactory;
@@ -88,7 +84,7 @@ public class TopPerformanceCollector implements Collector {
 		OSProcess[] osProcesses = systemInfo.getOperatingSystem().getProcesses(count, ProcessSort.CPU);
 		Arrays.stream(osProcesses).forEach(osProcess -> {
 			CPU resource = new CPU(doubleFormatter(osProcess.calculateCpuPercent()), doubleFormatter(totalCpu));
-			resource.setName(osProcess.getName());
+			resource.setName(osProcess.getName() + " | " + osProcess.getProcessID());
 			resources.add(resource);
 		});
 		LOGGER.info("{ Performance/CPU Metrics Collector Finished For Top { "+count +" } Processes} of Windows");

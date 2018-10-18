@@ -10,7 +10,8 @@ public class BrokerDetail {
 	private int totalConnectionsCount;
 	private int totalDequeueCount;
 	private List<Destination> queues = new ArrayList<Destination>();
-	private int memoryUsageByteCount;
+	private long memoryLimit;
+	private long memoryPercentUsage;
 	private List<Destination> topics = new ArrayList<Destination>();
 	
 	BrokerDetail(){};
@@ -56,19 +57,20 @@ public class BrokerDetail {
 	public void setTotalDequeueCount(int totalDequeueCount) {
 		this.totalDequeueCount = totalDequeueCount;
 	}
-	
-	public int getMemoryUsageByteCount() {
-		return memoryUsageByteCount;
+	public long getMemoryLimit() {
+		return memoryLimit;
 	}
-	public void setMemoryUsageByteCount(int memoryUsageByteCount) {
-		this.memoryUsageByteCount = memoryUsageByteCount;
+	public void setMemoryLimit(int memoryLimit) {
+		this.memoryLimit = memoryLimit;
 	}
-	
-	@Override
-	public String toString() {
-		return "BrokerDetail [totalConsumerCount=" + totalConsumerCount + ", totalEnqueueCount=" + totalEnqueueCount
-				+ ", totalConnectionsCount=" + totalConnectionsCount + ", totalDequeueCount=" + totalDequeueCount
-				+ ", queues=" + queues + ", memoryUsageByteCount=" + memoryUsageByteCount + ", topics=" + topics + "]";
+	public long getMemoryPercentUsage() {
+		return memoryPercentUsage;
 	}
-	
+	public void setMemoryPercentUsage(long memoryPercentUsage) {
+		this.memoryPercentUsage = memoryPercentUsage;
+	}
+	public long getMemoryUsageInByte(){
+		return (this.memoryLimit * this.memoryPercentUsage ) /100;
+	}
+		
 }

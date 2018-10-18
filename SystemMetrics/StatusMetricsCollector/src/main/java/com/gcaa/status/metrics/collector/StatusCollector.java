@@ -11,7 +11,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 import com.gcaa.metrics.domain.model.CPU;
-import com.gcaa.metrics.domain.model.Category;
+import com.gcaa.metrics.domain.model.Category1;
 import com.gcaa.metrics.domain.model.State;
 import oshi.SystemInfo;
 import oshi.software.os.OSProcess;

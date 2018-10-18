@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import com.gcaa.common.service.CommonApplicationService;
 import com.gcaa.metrics.domain.model.Host;
+import com.gcaa.metrics.domain.model.Type;
 
 @Component
 public class CollectorJob {
@@ -14,6 +15,7 @@ public class CollectorJob {
 	protected final static String UPSTREAM_SERVER_REGEX = "\\s*server\\s*(\\S*[\\:{0,1}\\d{1,5}]{0,1});";
 	public static int HUNDRED_PERCENT=100;
 	private Host host;
+	protected Type type;
 	
 	@Value("${host.name}")
 	private String hostName;
@@ -55,5 +57,15 @@ public class CollectorJob {
 	public void setHostName(String hostName) {
 		this.hostName = hostName;
 	}
+	
+	public Type getType() {
+		return type;
+	}
+	public void setType(Type type) {
+		this.type = type;
+	}
 
+	public CommonApplicationService getCommonApplicationService() {
+		return commonApplicationService;
+	}
 }

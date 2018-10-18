@@ -9,7 +9,9 @@ public class CollectorProperties {
 	private String endpoint;
 	private String name;
 	private List<String> measure = new ArrayList<>();
-
+	private String type;
+	private String category;
+	
 	public List<String> getMeasure() {
 		return measure;
 	}
@@ -40,6 +42,22 @@ public class CollectorProperties {
 
 	public void setEndpoint(String endpoint) {
 		this.endpoint = endpoint;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }

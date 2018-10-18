@@ -45,6 +45,11 @@
     },
     {
       "sourceType": "com.gcaa.service.metrics.config.BrokerCollectorProperties",
+      "name": "broker.category",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.BrokerCollectorProperties",
       "name": "broker.endpoint",
       "type": "java.lang.String"
     },
@@ -61,6 +66,16 @@
     {
       "sourceType": "com.gcaa.service.metrics.config.BrokerCollectorProperties",
       "name": "broker.name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.BrokerCollectorProperties",
+      "name": "broker.type",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.DestinationCollectorProperties",
+      "name": "destination.category",
       "type": "java.lang.String"
     },
     {
@@ -84,6 +99,16 @@
       "type": "java.lang.String"
     },
     {
+      "sourceType": "com.gcaa.service.metrics.config.DestinationCollectorProperties",
+      "name": "destination.type",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.QueueCollectorProperties",
+      "name": "queue.category",
+      "type": "java.lang.String"
+    },
+    {
       "sourceType": "com.gcaa.service.metrics.config.QueueCollectorProperties",
       "name": "queue.endpoint",
       "type": "java.lang.String"
@@ -101,6 +126,11 @@
     {
       "sourceType": "com.gcaa.service.metrics.config.QueueCollectorProperties",
       "name": "queue.name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.service.metrics.config.QueueCollectorProperties",
+      "name": "queue.type",
       "type": "java.lang.String"
     }
   ]

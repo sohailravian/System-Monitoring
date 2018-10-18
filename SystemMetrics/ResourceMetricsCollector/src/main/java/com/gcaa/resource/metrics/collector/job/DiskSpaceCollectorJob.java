@@ -25,7 +25,7 @@ public class DiskSpaceCollectorJob extends CollectorJob {
 	private ApplicationService 	applicationService;
 	private DiskSpaceCollector diskSpaceCollector;
 	private DiskSpaceCollectorProperties diskProperties; 
-	
+		
 	private static Logger LOGGER = LoggerFactory.getLogger(DiskSpaceCollectorJob.class);
 	
 	@Autowired
@@ -34,6 +34,7 @@ public class DiskSpaceCollectorJob extends CollectorJob {
 		this.applicationService = applicationService;
 		this.diskSpaceCollector	= diskCollector;
 		this.diskProperties 	= diskProperties;
+	
 	}
 	
 	@Scheduled(cron = "${disk.frequency-cron}")
@@ -47,8 +48,13 @@ public class DiskSpaceCollectorJob extends CollectorJob {
 		
 		if(!diskProperties.getMountPoints().isEmpty()) {
 			List<Utilization> UtilizationList = new ArrayList<Utilization>();
+			
 			double totalSpace = 0d;
 			double totalUsedSpace = 0d;
+			Type type = getCommonApplicationService().getTypeLookupByCode(diskProperties.getType()).get();
+			Category category = getCommonApplicationService().getCategoryLookupByCode(diskProperties.getCategory()).get();
+		
+			
 		for (MountPoint mountPoint : diskProperties.getMountPoints()) {
 				Optional<Resource> disk = diskSpaceCollector.collectDiskSpaceByMountPoint(mountPoint);
 				if(disk.isPresent()) {
@@ -57,12 +63,12 @@ public class DiskSpaceCollectorJob extends CollectorJob {
 					totalSpace = totalSpace + disk.get().getTotal();
 					totalUsedSpace = totalUsedSpace + disk.get().getUsed();
 					
-					Utilization utilization = utilization(Type.SYSTEM, Category.DISK, ((HardDisk)disk.get()).getName(), ((HardDisk)disk.get()).getName(), disk.get());
+					Utilization utilization = utilization(type,category, ((HardDisk)disk.get()).getName(), ((HardDisk)disk.get()).getName(), disk.get());
 					UtilizationList.add(utilization);
 				}
 			}
 			
-			Utilization utilization = utilization(Type.SYSTEM, Category.DISK, Category.DISK.name(),Category.DISK.name() , new HardDisk(totalUsedSpace, totalSpace, Category.DISK.name()));
+			Utilization utilization = utilization(type, category, category.getDescription(),category.getDescription() , new HardDisk(totalUsedSpace, totalSpace, category.getDescription()));
 			UtilizationList.add(utilization);
 			applicationService.saveUtilizationInBatch(UtilizationList);
 		}

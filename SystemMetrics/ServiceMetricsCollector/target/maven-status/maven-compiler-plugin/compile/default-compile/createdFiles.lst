@@ -8,11 +8,8 @@ META-INF\spring-configuration-metadata.json
 com\gcaa\service\metrics\model\broker\Queue.class
 com\gcaa\service\metrics\collector\QueueCollector.class
 com\gcaa\service\metrics\mapper\MetricsMapper.class
-com\gcaa\service\metrics\repository\MyBatisHostRepository.class
 com\gcaa\service\metrics\config\ActivemqRestApiProperties.class
-com\gcaa\service\metrics\mapper\HostMapper.class
 com\gcaa\service\metrics\collector\job\BrokerCollectorJob.class
-com\gcaa\service\metrics\repository\HostRepository.class
 com\gcaa\service\metrics\repository\MetricsRepository.class
 com\gcaa\service\metrics\model\broker\QueueDetail.class
 com\gcaa\service\metrics\model\broker\Destination.class

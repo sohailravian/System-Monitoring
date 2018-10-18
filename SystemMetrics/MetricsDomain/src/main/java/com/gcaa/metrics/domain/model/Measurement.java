@@ -1,44 +1,44 @@
 package com.gcaa.metrics.domain.model;
 
-import java.util.Arrays;
+import java.io.Serializable;
 
-public enum Measurement {
+public class Measurement implements Serializable {
+
+	private static final long serialVersionUID = 3069565714420969735L;
 	
-	NO_OF_CONSUMBER(1,"MSM001"),
-	NO_OF_QUEUES(2,"MSM002"),
-	NO_OF_TOPICS(3,"MSM003"),
-	NO_OF_MESSAGES(4,"MSM004"),
-	NO_OF_MESSAGES_ENQUEUED(5,"MSM005"),
-	NO_OF_MESSAGES_DEQUEUED(6,"MSM006"),
-	MEMORY_USAGE_BYTE(7,"MSM007"),
-	UPSTREAM_SERVER(8,"MSM008"),
-	STATUS(9,"MSM009"),
-	UN_RESOLVED(-20,"MSM-20");
+	private long id;	
+	private String code;
+	private String description;
 	
-	private Measurement(int id,String code) {
-		this.id=id;
-		this.code=code;
+	protected Measurement() {}
+	
+	public Measurement(long id,String code,String description) {
+		this.code = code;
+		this.description =	description;
 	}
 	
-	private String code;
-	private int id;
+	protected Measurement(String code,String description) {
+		this.code = code;
+		this.description =	description;
+	}
 	
-	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getCode() {
 		return code;
 	}
 	public void setCode(String code) {
 		this.code = code;
 	}
-	public int getId() {
-		return id;
+	public String getDescription() {
+		return description;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setDescription(String description) {
+		this.description = description;
 	}
-	
-	public static Measurement measurementByCode(String code) {
-		return Arrays.stream(Measurement.values()).
-				filter(measure -> code.equalsIgnoreCase(measure.getCode())).findFirst().orElse(UN_RESOLVED);
-	}
+
 }

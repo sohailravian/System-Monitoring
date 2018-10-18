@@ -1,14 +1,8 @@
 com\gcaa\common\repository\HostRepository.class
-META-INF\MANIFEST.MF
-META-INF\maven\com.gcaa.common\CommonRepository\pom.properties
-com\gcaa\common\repository\MyBatisHostRepository.class
-com\gcaa\common\repository\LookupRepository.class
-com\gcaa\common\service\CommonApplicationService.class
-META-INF\maven\com.gcaa.common\CommonRepository\pom.xml
 com\gcaa\common\repository\MyBatisLookupRepository.class
 com\gcaa\common\mapper\HostMapper.class
-com\gcaa\common\model\TypeLookup.class
+com\gcaa\common\repository\MyBatisHostRepository.class
+com\gcaa\common\repository\LookupRepository.class
 com\gcaa\common\mapper\LookupMapper.class
-com\gcaa\common\model\MeasurementLookup.class
+com\gcaa\common\service\CommonApplicationService.class
 com\gcaa\common\CommonRepositoryApplication.class
-com\gcaa\common\model\CategoryLookup.class

@@ -5,14 +5,14 @@ import java.util.Date;
 public class Configuration {
 
 	private int id;
-	private Type type;
-	private Category category;
+	private Type1 type;
+	private Category1 category;
 	private int warningThreshold;
 	private int criticalThreshold;
 	private boolean active;
 	private Date dateTime;
 	
-	protected Configuration(int id, Type type, Category category, boolean active, Date dateTime) {
+	protected Configuration(int id, Type1 type, Category1 category, boolean active, Date dateTime) {
 		super();
 		this.id = id;
 		this.type = type;
@@ -21,7 +21,7 @@ public class Configuration {
 		this.dateTime = dateTime;
 	}
 	
-	public Configuration(Type type, Category category, boolean active, Date dateTime) {
+	public Configuration(Type1 type, Category1 category, boolean active, Date dateTime) {
 		super();
 		this.type = type;
 		this.category = category;
@@ -35,16 +35,16 @@ public class Configuration {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Type getType() {
+	public Type1 getType() {
 		return type;
 	}
-	public void setType(Type type) {
+	public void setType(Type1 type) {
 		this.type = type;
 	}
-	public Category getCategory() {
+	public Category1 getCategory() {
 		return category;
 	}
-	public void setCategory(Category category) {
+	public void setCategory(Category1 category) {
 		this.category = category;
 	}
 	public int getWarningThreshold() {

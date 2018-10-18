@@ -7,10 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import com.gcaa.common.service.CommonApplicationService;
 import com.gcaa.metrics.domain.model.Category;
+import com.gcaa.metrics.domain.model.Category1;
 import com.gcaa.metrics.domain.model.Host;
 import com.gcaa.metrics.domain.model.Measurement;
+import com.gcaa.metrics.domain.model.Measurement1;
 import com.gcaa.metrics.domain.model.Metrics;
 import com.gcaa.metrics.domain.model.Type;
+import com.gcaa.metrics.domain.model.Type1;
 import com.gcaa.service.metrics.config.ActivemqRestApiProperties;
 import com.gcaa.service.metrics.model.broker.Broker;
 import com.gcaa.service.metrics.model.broker.QueueDetail;
@@ -20,6 +23,8 @@ public class CollectorJob {
 	
 	public static int HUNDRED_PERCENT=100;
 	private Host host;
+	protected Type type;
+	protected Category category;
 	
 	@Value("${host.name}")
 	private String hostName;
@@ -57,7 +62,7 @@ public class CollectorJob {
 	
 	protected long measureByMeasurement(String measure, QueueDetail queueDetail) {
 		long value = 0;
-		switch (Measurement.measurementByCode(measure)) {
+		switch (Measurement1.measurementByCode(measure)) {
 			case NO_OF_MESSAGES:
 				value = queueDetail.getQueueSize();
 				break;
@@ -79,17 +84,17 @@ public class CollectorJob {
 		return value;
 	}
 	
-	protected int measureByMeasurement(String measure, Broker broker) {
-		int value = 0;
-		switch (Measurement.measurementByCode(measure)) {
+	protected long measureByMeasurement(String measure, Broker broker) {
+		long value = 0;
+		switch (Measurement1.measurementByCode(measure)) {
 		case NO_OF_QUEUES:
 			value = broker.getValue().getQueuesCount();
 			break;
 		case NO_OF_TOPICS:
 			value = broker.getValue().getTopicCount();
 			break;	
-		case NO_OF_MESSAGES:
-			value = broker.getValue().getMemoryUsageByteCount();
+		case MEMORY_USAGE_BYTE:
+			value = broker.getValue().getMemoryUsageInByte();
 			break;	
 		default:
 			value = broker.getValue().getTotalConsumerCount();
@@ -130,6 +135,25 @@ public class CollectorJob {
 
 	public void setRestApiProperties(ActivemqRestApiProperties restApiProperties) {
 		this.restApiProperties = restApiProperties;
+	}
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public Type getType() {
+		return type;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
+	}
+	
+	public CommonApplicationService getCommonApplicationService() {
+		return commonApplicationService;
 	}
 
 }

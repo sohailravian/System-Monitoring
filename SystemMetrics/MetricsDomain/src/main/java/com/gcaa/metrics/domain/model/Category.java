@@ -1,53 +1,43 @@
 package com.gcaa.metrics.domain.model;
 
-import java.util.Arrays;
+import java.io.Serializable;
 
-public enum Category {
+public class Category implements Serializable {
+
+	private static final long serialVersionUID = 3726478060086799463L;
+	private long id;	
+	private String code;
+	private String description;
 	
-	MEMORY(1,"CAT001"),
-	DISK(2,"CAT002"),
-	CPU(3,"CAT003"),
-	RIE(4,"CAT004"),
-	RFE(5,"CAT005"),
-	BROKER(6,"CAT006"),
-	QUEUE(7,"CAT007"),
-	TOPIC(8,"CAT008"),
-	DATABASE(9,"CAT009"),
-	RIE_WEB(10,"CAT010"),
-	RIE_SOAP(11,"CAT011"),
-	PSI(12,"CAT012"),
-	MAIL_SERVER(13,"CAT013"),
-	UN_RESOLVED(100,"CAT100");
+	protected Category() {}
 	
-	private Category(int id,String code) {
-		this.id=id;
-		this.code=code;
+	public Category(long id,String code,String description) {
+		this.code = code;
+		this.description =	description;
 	}
 	
-	private String code;
-	private int id;
+	protected Category(String code,String description) {
+		this.code = code;
+		this.description =	description;
+	}
 	
-	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getCode() {
 		return code;
 	}
 	public void setCode(String code) {
 		this.code = code;
 	}
-	public int getId() {
-		return id;
+	public String getDescription() {
+		return description;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setDescription(String description) {
+		this.description = description;
 	}
-	
-	public static Category categoryByCode(String code) {
-		return Arrays.stream(Category.values()).
-				filter(category -> code.equalsIgnoreCase(category.getCode())).findFirst().orElse(UN_RESOLVED);
-	}
-	
-	public static void main(String[] args) {
-		System.out.println(Category.categoryByCode("cat004"));
-	}
-	
+
 }

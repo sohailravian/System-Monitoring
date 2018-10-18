@@ -1,11 +1,8 @@
-D:\gcaa\workspaces\sts workspace\SystemMetrics\CommonRepository\src\main\java\com\gcaa\common\model\TypeLookup.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\CommonRepository\src\main\java\com\gcaa\common\mapper\LookupMapper.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\CommonRepository\src\main\java\com\gcaa\common\mapper\HostMapper.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\CommonRepository\src\main\java\com\gcaa\common\service\CommonApplicationService.java
-D:\gcaa\workspaces\sts workspace\SystemMetrics\CommonRepository\src\main\java\com\gcaa\common\model\CategoryLookup.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\CommonRepository\src\main\java\com\gcaa\common\repository\MyBatisHostRepository.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\CommonRepository\src\main\java\com\gcaa\common\CommonRepositoryApplication.java
-D:\gcaa\workspaces\sts workspace\SystemMetrics\CommonRepository\src\main\java\com\gcaa\common\model\MeasurementLookup.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\CommonRepository\src\main\java\com\gcaa\common\repository\MyBatisLookupRepository.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\CommonRepository\src\main\java\com\gcaa\common\repository\HostRepository.java
 D:\gcaa\workspaces\sts workspace\SystemMetrics\CommonRepository\src\main\java\com\gcaa\common\repository\LookupRepository.java

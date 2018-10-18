@@ -3,15 +3,18 @@ package com.gcaa.service.metrics.collector.job;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import javax.annotation.PostConstruct;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import com.gcaa.metrics.domain.model.Category;
-import com.gcaa.metrics.domain.model.Measurement;
+import com.gcaa.metrics.domain.model.Category1;
+import com.gcaa.metrics.domain.model.Measurement1;
 import com.gcaa.metrics.domain.model.Metrics;
-import com.gcaa.metrics.domain.model.Type;
+import com.gcaa.metrics.domain.model.Type1;
 import com.gcaa.service.metrics.collector.BrokerCollector;
 import com.gcaa.service.metrics.config.BrokerCollectorProperties;
 import com.gcaa.service.metrics.model.broker.Broker;
@@ -27,6 +30,12 @@ public class BrokerCollectorJob extends CollectorJob {
 	public BrokerCollectorJob(BrokerCollector brokerCollector , BrokerCollectorProperties collectorProperties) {
 		this.collectorProperties = collectorProperties;
 		this.brokerCollector = brokerCollector;
+	}
+	
+	@PostConstruct
+	public void postInitilization() {
+		this.setType(getCommonApplicationService().getTypeLookupByCode(collectorProperties.getType()).get());
+		this.setCategory(getCommonApplicationService().getCategoryLookupByCode(collectorProperties.getCategory()).get());
 	}
 	
 	@Scheduled(cron = "${broker.frequency-cron}")
@@ -56,7 +65,7 @@ public class BrokerCollectorJob extends CollectorJob {
 	private List<Metrics> metrics(Broker broker){
 		List<Metrics> metricsList = new ArrayList<Metrics>();
 		for (String measure : collectorProperties.getMeasure()) {
-			Metrics metrics = metrics(Type.SERVICE, Category.BROKER ,Measurement.measurementByCode(measure),collectorProperties.getName() ,measureByMeasurement(measure, broker));
+			Metrics metrics = metrics(getType(), getCategory() ,getCommonApplicationService().getMeasurementByCode(measure).get(),collectorProperties.getName() ,measureByMeasurement(measure, broker));
 			metricsList.add(metrics);
 		}
 		return metricsList;

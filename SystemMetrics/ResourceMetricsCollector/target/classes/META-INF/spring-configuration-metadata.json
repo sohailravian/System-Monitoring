@@ -20,6 +20,11 @@
   "properties": [
     {
       "sourceType": "com.gcaa.resource.metrics.config.PerformanceCollectorProperties",
+      "name": "cpu.category",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.resource.metrics.config.PerformanceCollectorProperties",
       "name": "cpu.frequency-cron",
       "type": "java.lang.String"
     },
@@ -37,6 +42,16 @@
       "sourceType": "com.gcaa.resource.metrics.config.PerformanceCollectorProperties",
       "name": "cpu.process-ids",
       "type": "java.util.List<com.gcaa.resource.metrics.config.CollectorProperties.Process>"
+    },
+    {
+      "sourceType": "com.gcaa.resource.metrics.config.PerformanceCollectorProperties",
+      "name": "cpu.type",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.resource.metrics.config.DiskSpaceCollectorProperties",
+      "name": "disk.category",
+      "type": "java.lang.String"
     },
     {
       "sourceType": "com.gcaa.resource.metrics.config.DiskSpaceCollectorProperties",
@@ -65,8 +80,18 @@
     },
     {
       "sourceType": "com.gcaa.resource.metrics.config.DiskSpaceCollectorProperties",
+      "name": "disk.type",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.gcaa.resource.metrics.config.DiskSpaceCollectorProperties",
       "name": "disk.unit",
       "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.gcaa.resource.metrics.config.MemoryCollectorProperties",
+      "name": "memory.category",
+      "type": "java.lang.String"
     },
     {
       "sourceType": "com.gcaa.resource.metrics.config.MemoryCollectorProperties",
@@ -87,6 +112,11 @@
       "sourceType": "com.gcaa.resource.metrics.config.MemoryCollectorProperties",
       "name": "memory.process-ids",
       "type": "java.util.List<com.gcaa.resource.metrics.config.CollectorProperties.Process>"
+    },
+    {
+      "sourceType": "com.gcaa.resource.metrics.config.MemoryCollectorProperties",
+      "name": "memory.type",
+      "type": "java.lang.String"
     },
     {
       "sourceType": "com.gcaa.resource.metrics.config.MemoryCollectorProperties",
